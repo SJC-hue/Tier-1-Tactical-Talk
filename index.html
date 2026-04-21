@@ -712,6 +712,42 @@
     .photo-frame-outer { width: 220px; }
   }
 
+
+  /* === LANG SWITCHER === */
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-right: 1.5rem;
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+  }
+  .lang-btn {
+    background: transparent;
+    border: none;
+    padding: 0.4rem 0.75rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted-light);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 600;
+  }
+  .lang-btn.active {
+    background: var(--black);
+    color: var(--light-surface);
+  }
+  .lang-btn:hover:not(.active) { color: var(--gold); }
+
+  /* Translation visibility */
+  [data-lang="es"] { display: none; }
+  body.lang-es [data-lang="en"] { display: none; }
+  body.lang-es [data-lang="es"] { display: revert; }
+  body.lang-es [data-lang="es"].flex-item { display: flex; }
+  body.lang-es [data-lang="es"].inline-item { display: inline; }
+
 </style>
 </head>
 <body>
@@ -720,24 +756,31 @@
 <nav>
   <a href="#" class="nav-logo">Tier 1 Tactical<span>Speaking & Consultancy</span></a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#credentials">Credentials</a></li>
-    <li><a href="mailto:cobrettieops@protonmail.com" class="nav-cta">Send Enquiry</a></li>
+    <li><a href="#about"><span data-lang="en">About</span><span data-lang="es" style="display:none;">Sobre Mí</span></a></li>
+    <li><a href="#services"><span data-lang="en">Services</span><span data-lang="es" style="display:none;">Servicios</span></a></li>
+    <li><a href="#credentials"><span data-lang="en">Credentials</span><span data-lang="es" style="display:none;">Credenciales</span></a></li>
+    <li>
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+      </div>
+    </li>
+    <li><a href="mailto:cobrettieops@protonmail.com" class="nav-cta"><span data-lang="en">Send Enquiry</span><span data-lang="es" style="display:none;">Enviar Consulta</span></a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <p class="hero-leadership">Leadership Development Under Human Performance</p>
-    <h1>Former Special Forces.<br><span style="color:var(--gold);">Human Performance.</span><br>Leadership Development.</h1>
+    <p class="hero-leadership"><span data-lang="en">Leadership Development Under Human Performance</span><span data-lang="es" style="display:none;">Desarrollo de Liderazgo Bajo Rendimiento Humano</span></p>
+    <h1><span data-lang="en">Former Special Forces.<br><span style="color:var(--gold);">Human Performance.</span><br>Leadership Development.</span><span data-lang="es" style="display:none;">Ex Fuerzas Especiales.<br><span style="color:var(--gold);">Rendimiento Humano.</span><br>Desarrollo de Liderazgo.</span></h1>
     <p class="hero-desc">
-      I channel hard-won lessons from the world's most demanding environments into speaking, coaching, and consultancy for individuals, teams, and organisations who want to operate at a genuinely elite level.
+      <span data-lang="en">I channel hard-won lessons from the world's most demanding environments into speaking, coaching, and consultancy for individuals, teams, and organisations who want to operate at a genuinely elite level.</span>
+      <span data-lang="es" style="display:none;">Canalizo lecciones ganadas con esfuerzo en los entornos más exigentes del mundo en conferencias, coaching y consultoría para individuos, equipos y organizaciones que quieren operar a un nivel genuinamente de élite.</span>
     </p>
     <div class="hero-actions">
-      <a href="mailto:cobrettieops@protonmail.com?subject=Enquiry%20%7C%20Tier%201%20Tactical" class="btn-primary">Send Enquiry</a>
-      <a href="#services" class="btn-ghost">View Services</a>
+      <a href="mailto:cobrettieops@protonmail.com?subject=Enquiry%20%7C%20Tier%201%20Tactical" class="btn-primary"><span data-lang="en">Send Enquiry</span><span data-lang="es" style="display:none;">Enviar Consulta</span></a>
+      <a href="#services" class="btn-ghost"><span data-lang="en">View Services</span><span data-lang="es" style="display:none;">Ver Servicios</span></a>
     </div>
   </div></div>
 </section>
@@ -749,8 +792,8 @@
   </div>
   <div class="photo-name">
     <strong>Simon Cobrettie</strong>
-    <span class="photo-title">Founder · Tier 1 Tactical</span>
-    <p>Former Special Forces operator. Ironman athlete, competitive bodybuilder, and human performance advocate. I channel everything learned across two decades of extreme environments into speaking and consultancy for individuals, teams, and organisations ready to operate at a genuinely elite level.</p>
+    <span class="photo-title"><span data-lang="en">Founder · Tier 1 Tactical</span><span data-lang="es" style="display:none;">Fundador · Tier 1 Tactical</span></span>
+    <p><span data-lang="en">Former Special Forces operator. Ironman athlete, competitive bodybuilder, and human performance advocate. I channel everything learned across two decades of extreme environments into speaking and consultancy for individuals, teams, and organisations ready to operate at a genuinely elite level.</span><span data-lang="es" style="display:none;">Ex operador de Fuerzas Especiales. Atleta Ironman, culturista competitivo y defensor del rendimiento humano. Canalizo todo lo aprendido en dos décadas de entornos extremos en conferencias y consultoría para individuos, equipos y organizaciones listos para operar a un nivel genuinamente de élite.</span></p>
   </div>
 </div>
 
@@ -758,19 +801,19 @@
 <section id="about" class="about-section">
   <div class="about-grid">
     <div>
-      <h2 class="section-title-light">Forged in Environments Where Failure Isn't an Option</h2>
+      <h2 class="section-title-light"><span data-lang="en">Forged in Environments Where Failure Isn't an Option</span><span data-lang="es" style="display:none;">Forjado en Entornos Donde el Fracaso No es una Opción</span></h2>
       <p class="about-body">
-        I've spent my life in environments where the margin for error is zero and that's shaped everything I do. Twelve years in Special Forces.
+        <span data-lang="en">I've spent my life in environments where the margin for error is zero and that's shaped everything I do. Twelve years in Special Forces.</span><span data-lang="es" style="display:none;">He pasado mi vida en entornos donde el margen de error es cero y eso ha moldeado todo lo que hago. Doce años en Fuerzas Especiales.</span>
       </p>
       <p class="about-body">
-        Those years built more than physical toughness. They forged a framework for decision-making under pressure, leading through ambiguity, and sustaining performance when everything around you is in chaos.
+        <span data-lang="en">Those years built more than physical toughness. They forged a framework for decision-making under pressure, leading through ambiguity, and sustaining performance when everything around you is in chaos.</span><span data-lang="es" style="display:none;">Esos años construyeron más que fortaleza física. Forjaron un marco para la toma de decisiones bajo presión, liderar en la ambigüedad y mantener el rendimiento cuando todo a tu alrededor está en caos.</span>
       </p>
       <div class="quote-block">
-        <p class="quote-text">"I've survived combat, two heart attacks, and cancer and I still train at a high level every day. What I bring to every room isn't just a story. It's a tested operating system for human performance."</p>
+        <p class="quote-text"><span data-lang="en">"I've survived combat, two heart attacks, and cancer and I still train at a high level every day. What I bring to every room isn't just a story. It's a tested operating system for human performance."</span><span data-lang="es" style="display:none;">"He sobrevivido al combate, dos infartos y cáncer, y sigo entrenando a alto nivel cada día. Lo que traigo a cada sala no es solo una historia. Es un sistema operativo probado para el rendimiento humano."</span></p>
       </div>
       <p class="about-body">
       <p class="about-body">
-        Beyond the battlefield: mountain summits, <strong>over 50 triathlons including four full Ironman races</strong>, competitive bodybuilding, and open-sea swimming challenges. These aren't just athletic achievements. They're a commitment to pushing the boundaries of what's possible.
+        <span data-lang="en">Beyond the battlefield: mountain summits, <strong>over 50 triathlons including four full Ironman races</strong>, competitive bodybuilding, and open-sea swimming challenges. These aren't just athletic achievements. They're a commitment to pushing the boundaries of what's possible.</span><span data-lang="es" style="display:none;">Más allá del campo de batalla: cumbres de montañas, <strong>más de 50 triatlones incluyendo cuatro Ironman completos</strong>, culturismo competitivo y desafíos de natación en mar abierto. No son solo logros atléticos. Son un compromiso con ampliar los límites de lo posible.</span>
       </p>
       </p>
       <br>
@@ -781,36 +824,36 @@
         <li>
           <div class="ach-icon"></div>
           <div class="ach-text">
-            <strong>Special Forces Veteran</strong>
-            12 years of elite military service including selection, advanced training, and multi-theater combat operations.
+            <strong><span data-lang="en">Special Forces Veteran</span><span data-lang="es" style="display:none;">Veterano de Fuerzas Especiales</span></strong>
+            <span data-lang="en">12 years of elite military service including selection, advanced training, and multi-theater combat operations.</span><span data-lang="es" style="display:none;">12 años de servicio militar de élite incluyendo selección, entrenamiento avanzado y operaciones de combate en múltiples teatros.</span>
           </div>
         </li>
         <li>
           <div class="ach-icon"></div>
           <div class="ach-text">
-            <strong>4× Full Ironman Finisher</strong>
-            140.6 miles 2.4mi swim, 112mi bike, 26.2mi marathon. Completed four times.
+            <strong><span data-lang="en">4× Full Ironman Finisher</span><span data-lang="es" style="display:none;">4× Finalizador Ironman Completo</span></strong>
+            <span data-lang="en">140.6 miles 2.4mi swim, 112mi bike, 26.2mi marathon. Completed four times.</span><span data-lang="es" style="display:none;">226 km: 3,8km natación, 180km ciclismo, 42,2km maratón. Completado cuatro veces.</span>
           </div>
         </li>
         <li>
           <div class="ach-icon"></div>
           <div class="ach-text">
-            <strong>50+ Triathlons</strong>
-            A career-long commitment to multisport endurance racing at every distance.
+            <strong><span data-lang="en">50+ Triathlons</span><span data-lang="es" style="display:none;">+50 Triatlones</span></strong>
+            <span data-lang="en">A career-long commitment to multisport endurance racing at every distance.</span><span data-lang="es" style="display:none;">Un compromiso de por vida con las carreras de resistencia multideporte en todas las distancias.</span>
           </div>
         </li>
         <li>
           <div class="ach-icon"></div>
           <div class="ach-text">
-            <strong>Open-Sea Swimming Challenges</strong>
-            Demanding open-water events requiring navigation, endurance, and mental toughness under pressure.
+            <strong><span data-lang="en">Open-Sea Swimming Challenges</span><span data-lang="es" style="display:none;">Desafíos de Natación en Mar Abierto</span></strong>
+            <span data-lang="en">Demanding open-water events requiring navigation, endurance, and mental toughness under pressure.</span><span data-lang="es" style="display:none;">Exigentes eventos en aguas abiertas que requieren navegación, resistencia y fortaleza mental bajo presión.</span>
           </div>
         </li>
         <li>
           <div class="ach-icon"></div>
           <div class="ach-text">
-            <strong>Competitive Bodybuilder</strong>
-            Stage-level physique competition precision nutrition, programming, and elite-level discipline.
+            <strong><span data-lang="en">Competitive Bodybuilder</span><span data-lang="es" style="display:none;">Culturista Competitivo</span></strong>
+            <span data-lang="en">Stage-level physique competition precision nutrition, programming, and elite-level discipline.</span><span data-lang="es" style="display:none;">Competición de físico a nivel de escenario, nutrición de precisión, programación y disciplina de nivel élite.</span>
           </div>
         </li>
       </ul>
@@ -820,35 +863,35 @@
 
 <!-- SERVICES -->
 <section id="services" class="services-section">
-  <h2 class="section-title-dark">Engagements Built for Impact</h2>
+  <h2 class="section-title-dark"><span data-lang="en">Engagements Built for Impact</span><span data-lang="es" style="display:none;">Compromisos Construidos para el Impacto</span></h2>
   <p style="color: var(--text-secondary-dark); max-width: 540px; font-size: 0.95rem; line-height: 1.85; font-weight: 300;">
-    Everything I deliver comes from lived experience not theory. If you're ready to perform at a different level, let's talk.
+    <span data-lang="en">Everything I deliver comes from lived experience not theory. If you're ready to perform at a different level, let's talk.</span><span data-lang="es" style="display:none;">Todo lo que entrego proviene de la experiencia vivida, no de la teoría. Si estás listo para rendir a un nivel diferente, hablemos.</span>
   </p>
 
   <div class="services-grid">
     <div class="service-card">
       <span class="service-num">01</span>
       <div class="service-icon-line"></div>
-      <h3 class="service-name">Keynote & Motivational Speaking</h3>
-      <p class="service-desc">Stage presentations that go beyond inspiration. Audiences leave with frameworks they can deploy decision-making under pressure, resilience in adversity, and the mindset that separates performers from the rest. Available for conferences and corporate events.</p>
+      <h3 class="service-name"><span data-lang="en">Keynote & Motivational Speaking</span><span data-lang="es" style="display:none;">Conferencias & Charlas Motivacionales</span></h3>
+      <p class="service-desc"><span data-lang="en">Stage presentations that go beyond inspiration. Audiences leave with frameworks they can deploy decision-making under pressure, resilience in adversity, and the mindset that separates performers from the rest. Available for conferences and corporate events.</span><span data-lang="es" style="display:none;">Presentaciones en escenario que van más allá de la inspiración. El público se va con marcos que puede aplicar: toma de decisiones bajo presión, resiliencia en la adversidad y la mentalidad que separa a los que rinden del resto. Disponible para conferencias y eventos corporativos.</span></p>
     </div>
     <div class="service-card">
       <span class="service-num">02</span>
       <div class="service-icon-line"></div>
-      <h3 class="service-name">Personal Consultancy & Coaching</h3>
-      <p class="service-desc">One-on-one engagement for individuals operating at or aiming for the highest level. Drawing on military performance psychology, endurance training, and real-world leadership, this is not cookie-cutter coaching. It's a tested system, built for results.</p>
+      <h3 class="service-name"><span data-lang="en">Personal Consultancy & Coaching</span><span data-lang="es" style="display:none;">Consultoría Personal & Coaching</span></h3>
+      <p class="service-desc"><span data-lang="en">One-on-one engagement for individuals operating at or aiming for the highest level. Drawing on military performance psychology, endurance training, and real-world leadership, this is not cookie-cutter coaching. It's a tested system, built for results.</span><span data-lang="es" style="display:none;">Sesiones individuales para personas que operan o aspiran al nivel más alto. Basado en psicología del rendimiento militar, entrenamiento de resistencia y liderazgo real. No es coaching genérico. Es un sistema probado, diseñado para resultados.</span></p>
     </div>
     <div class="service-card">
       <span class="service-num">03</span>
       <div class="service-icon-line"></div>
-      <h3 class="service-name">Leadership & Resilience Workshops</h3>
-      <p class="service-desc">Intensive half-day and full-day workshops for leadership teams who want to develop genuine resilience not just an awareness of it. Built around Special Forces leadership principles, stress inoculation, and high-stakes decision-making frameworks.</p>
+      <h3 class="service-name"><span data-lang="en">Leadership & Resilience Workshops</span><span data-lang="es" style="display:none;">Talleres de Liderazgo & Resiliencia</span></h3>
+      <p class="service-desc"><span data-lang="en">Intensive half-day and full-day workshops for leadership teams who want to develop genuine resilience not just an awareness of it. Built around Special Forces leadership principles, stress inoculation, and high-stakes decision-making frameworks.</span><span data-lang="es" style="display:none;">Talleres intensivos de medio día y día completo para equipos de liderazgo que quieren desarrollar resiliencia genuina, no solo consciencia de ella. Basados en principios de liderazgo de Fuerzas Especiales, inoculación al estrés y marcos de decisión de alto riesgo.</span></p>
     </div>
     <div class="service-card">
       <span class="service-num">04</span>
       <div class="service-icon-line"></div>
-      <h3 class="service-name">Corporate & Team Performance</h3>
-      <p class="service-desc">Custom engagements designed around your organisation's specific challenges. Whether it's building high-performance culture, developing leaders under pressure, or unlocking team cohesion I bring a military-grade operational lens to the corporate environment.</p>
+      <h3 class="service-name"><span data-lang="en">Corporate & Team Performance</span><span data-lang="es" style="display:none;">Rendimiento Corporativo & de Equipos</span></h3>
+      <p class="service-desc"><span data-lang="en">Custom engagements designed around your organisation's specific challenges. Whether it's building high-performance culture, developing leaders under pressure, or unlocking team cohesion I bring a military-grade operational lens to the corporate environment.</span><span data-lang="es" style="display:none;">Compromisos personalizados diseñados en torno a los desafíos específicos de su organización. Ya sea construir una cultura de alto rendimiento, desarrollar líderes bajo presión o desbloquear la cohesión del equipo, aporto una perspectiva operativa de grado militar al entorno corporativo.</span></p>
     </div>
   </div>
 </section>
@@ -857,31 +900,31 @@
 <section id="credentials" class="creds-section">
   <div class="creds-grid">
     <div>
-      <h2 class="section-title-light">Experience That Cannot Be Manufactured</h2>
+      <h2 class="section-title-light"><span data-lang="en">Experience That Cannot Be Manufactured</span><span data-lang="es" style="display:none;">Experiencia Que No Puede Fabricarse</span></h2>
       <p class="about-body">
-        Everything I deliver comes from direct, lived experience. No borrowed frameworks, no second-hand knowledge. The principles I teach have been tested in environments where failure is not an option and in the endurance arena where your mind will try to quit long before your body should.
+        <span data-lang="en">Everything I deliver comes from direct, lived experience. No borrowed frameworks, no second-hand knowledge. The principles I teach have been tested in environments where failure is not an option and in the endurance arena where your mind will try to quit long before your body should.</span><span data-lang="es" style="display:none;">Todo lo que entrego proviene de experiencia directa y vivida. Sin marcos prestados, sin conocimiento de segunda mano. Los principios que enseño han sido probados en entornos donde el fracaso no es una opción y en la arena de la resistencia donde tu mente intentará rendirse mucho antes de que tu cuerpo deba hacerlo.</span>
       </p>
     </div>
     <div class="timeline">
       <div class="timeline-item">
-        <p class="timeline-era">Military Service</p>
-        <p class="timeline-title">Special Forces Veteran</p>
-        <p class="timeline-detail">12 years total service. Elite selection, advanced training, and deployment across multiple theaters of active combat.</p>
+        <p class="timeline-era"><span data-lang="en">Military Service</span><span data-lang="es" style="display:none;">Servicio Militar</span></p>
+        <p class="timeline-title"><span data-lang="en">Special Forces Veteran</span><span data-lang="es" style="display:none;">Veterano de Fuerzas Especiales</span></p>
+        <p class="timeline-detail"><span data-lang="en">12 years total service. Elite selection, advanced training, and deployment across multiple theaters of active combat.</span><span data-lang="es" style="display:none;">12 años de servicio total. Selección de élite, entrenamiento avanzado y despliegue en múltiples teatros de combate activo.</span></p>
       </div>
       <div class="timeline-item">
-        <p class="timeline-era">Special Operations</p>
-        <p class="timeline-title">Special Forces Operator</p>
-        <p class="timeline-detail">Highest tier of US special operations. Counter-terrorism, direct action, and clandestine operations across multiple theaters.</p>
+        <p class="timeline-era"><span data-lang="en">Special Operations</span><span data-lang="es" style="display:none;">Operaciones Especiales</span></p>
+        <p class="timeline-title"><span data-lang="en">Special Forces Operator</span><span data-lang="es" style="display:none;">Operador de Fuerzas Especiales</span></p>
+        <p class="timeline-detail"><span data-lang="en">Highest tier of US special operations. Counter-terrorism, direct action, and clandestine operations across multiple theaters.</span><span data-lang="es" style="display:none;">El nivel más alto de las operaciones especiales de EE.UU. Contraterrorismo, acción directa y operaciones clandestinas en múltiples teatros.</span></p>
       </div>
       <div class="timeline-item">
-        <p class="timeline-era">Combat Record</p>
-        <p class="timeline-title">8+ Years Active Combat Missions</p>
-        <p class="timeline-detail">8 of 12 years spent on active combat missions, having lived through extreme PTSD.</p>
+        <p class="timeline-era"><span data-lang="en">Combat Record</span><span data-lang="es" style="display:none;">Historial de Combate</span></p>
+        <p class="timeline-title"><span data-lang="en">8+ Years Active Combat Missions</span><span data-lang="es" style="display:none;">8+ Años de Misiones de Combate Activo</span></p>
+        <p class="timeline-detail"><span data-lang="en">8 of 12 years spent on active combat missions, having lived through extreme PTSD.</span><span data-lang="es" style="display:none;">8 de 12 años en misiones de combate activo, habiendo vivido un PTSD extremo.</span></p>
       </div>
       <div class="timeline-item">
-        <p class="timeline-era">Today</p>
-        <p class="timeline-title">Tier 1 Tactical Speaker & Consultant</p>
-        <p class="timeline-detail">Channelling hard-won operational insight into speaking, coaching, and corporate performance engagements worldwide.</p>
+        <p class="timeline-era"><span data-lang="en">Today</span><span data-lang="es" style="display:none;">Hoy</span></p>
+        <p class="timeline-title"><span data-lang="en">Tier 1 Tactical Speaker & Consultant</span><span data-lang="es" style="display:none;">Conferenciante y Consultor Tier 1 Tactical</span></p>
+        <p class="timeline-detail"><span data-lang="en">Channelling hard-won operational insight into speaking, coaching, and corporate performance engagements worldwide.</span><span data-lang="es" style="display:none;">Canalizando conocimientos operativos ganados con esfuerzo en conferencias, coaching y compromisos de rendimiento corporativo en todo el mundo.</span></p>
       </div>
     </div>
   </div>
@@ -889,25 +932,25 @@
 
 <!-- QUOTE BAND -->
 <div style="background:#1c1c1c;padding:60px 5%;text-align:center;">
-  <p class="band-quote" style="color:rgba(255,255,255,0.45);font-weight:200;">"I'm not in the room only to inspire you. I'm here to give you a system that works when everything else is failing, because failure wasn't an option for me."</p>
+  <p class="band-quote" style="color:rgba(255,255,255,0.45);font-weight:200;"><span data-lang="en">"I'm not in the room only to inspire you. I'm here to give you a system that works when everything else is failing, because failure wasn't an option for me."</span><span data-lang="es" style="display:none;">"No estoy en la sala solo para inspirarte. Estoy aquí para darte un sistema que funciona cuando todo lo demás falla, porque el fracaso no era una opción para mí."</span></p>
   <p class="band-attr" style="color:rgba(255,255,255,0.3);">  Tier 1 Tactical</p>
 </div>
 
 <!-- PERSONAL TRAINING -->
-<section style="background:var(--black);padding:60px 5%;text-align:center;border-top:1px solid rgba(255,255,255,0.08);">
-  <p style="text-transform:uppercase;letter-spacing:0.15em;font-size:0.75rem;color:var(--gold);margin-bottom:12px;">Personal Training</p>
-  <h2 style="font-size:clamp(1.4rem,3vw,2rem);color:var(--gold);margin-bottom:16px;">Ready to Train at a Different Level?</h2>
-  <p style="max-width:560px;margin:0 auto 32px;color:rgba(255,255,255,0.65);font-size:0.97rem;line-height:1.7;">Programmes built on two decades of elite operational experience — designed for individuals who are serious about physical and mental performance. Visit my personal training site to find out more.</p>
-  <a href="https://tier1t.cobrettieops.workers.dev/#system" target="_blank" rel="noopener noreferrer" class="btn-primary">Go to Site</a>
+<section style="background:#000000;padding:60px 5%;text-align:center;border-top:1px solid rgba(255,255,255,0.08);">
+  <p style="text-transform:uppercase;letter-spacing:0.15em;font-size:0.75rem;color:var(--gold);margin-bottom:12px;"><span data-lang="en">Personal Training</span><span data-lang="es" style="display:none;">Entrenamiento Personal</span></p>
+  <h2 style="font-size:clamp(1.4rem,3vw,2rem);color:var(--gold);margin-bottom:16px;"><span data-lang="en">Ready to Train at a Different Level?</span><span data-lang="es" style="display:none;">¿Listo para Entrenar a un Nivel Diferente?</span></h2>
+  <p style="max-width:560px;margin:0 auto 32px;color:rgba(255,255,255,0.65);font-size:0.97rem;line-height:1.7;"><span data-lang="en">Programmes built on two decades of elite operational experience — designed for individuals who are serious about physical and mental performance. Visit my personal training site to find out more.</span><span data-lang="es" style="display:none;">Programas construidos sobre dos décadas de experiencia operativa de élite — diseñados para individuos serios sobre el rendimiento físico y mental. Visita mi sitio de entrenamiento personal para saber más.</span></p>
+  <a href="https://tier1t.cobrettieops.workers.dev/#system" target="_blank" rel="noopener noreferrer" class="btn-primary"><span data-lang="en">Go to Site</span><span data-lang="es" style="display:none;">Ir al Sitio</span></a>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="contact-section">
   <div class="contact-grid">
     <div>
-      <h2 class="section-title-light">Ready to Perform at a Different Level?</h2>
+      <h2 class="section-title-light"><span data-lang="en">Ready to Perform at a Different Level?</span><span data-lang="es" style="display:none;">¿Listo para Rendir a un Nivel Diferente?</span></h2>
       <p class="contact-body">
-        Whether you need a keynote speaker who delivers more than a story, a coach who's operated at the absolute edge, or a partner to transform your team's performance fill out the form and I'll be in touch within 24 hours.
+        <span data-lang="en">Whether you need a keynote speaker who delivers more than a story, a coach who's operated at the absolute edge, or a partner to transform your team's performance fill out the form and I'll be in touch within 24 hours.</span><span data-lang="es" style="display:none;">Ya sea que necesite un conferenciante que entregue más que una historia, un coach que haya operado al límite absoluto, o un socio para transformar el rendimiento de su equipo — complete el formulario y me pondré en contacto en 24 horas.</span>
       </p>
 
     </div>
@@ -916,39 +959,39 @@
       <form class="contact-form" onsubmit="return false;">
         <div class="form-row">
           <div class="form-field">
-            <label>First Name</label>
+            <label><span data-lang="en">First Name</span><span data-lang="es" style="display:none;">Nombre</span></label>
             <input type="text" placeholder="John">
           </div>
           <div class="form-field">
-            <label>Last Name</label>
+            <label><span data-lang="en">Last Name</span><span data-lang="es" style="display:none;">Apellido</span></label>
             <input type="text" placeholder="Smith">
           </div>
         </div>
         <div class="form-field">
-          <label>Email</label>
+          <label><span data-lang="en">Email</span><span data-lang="es" style="display:none;">Correo Electrónico</span></label>
           <input type="email" placeholder="john@organisation.com">
         </div>
         <div class="form-field">
-          <label>Organisation</label>
-          <input type="text" placeholder="Company or organisation name">
+          <label><span data-lang="en">Organisation</span><span data-lang="es" style="display:none;">Organización</span></label>
+          <input type="text" placeholder="Company or organisation name" id="org-input">
         </div>
         <div class="form-field">
-          <label>Engagement Type</label>
+          <label><span data-lang="en">Engagement Type</span><span data-lang="es" style="display:none;">Tipo de Compromiso</span></label>
           <select>
-            <option value="">Select an engagement</option>
-            <option>Keynote / Motivational Speaking</option>
-            <option>Personal Consultancy & Coaching</option>
-            <option>Leadership & Resilience Workshop</option>
-            <option>Corporate Team Performance</option>
-            <option>Multiple / Custom Engagement</option>
+            <option value=""><span data-lang="en">Select an engagement</span></option>
+            <option data-en="Keynote / Motivational Speaking" data-es="Conferencia / Charla Motivacional">Keynote / Motivational Speaking</option>
+            <option data-en="Personal Consultancy & Coaching" data-es="Consultoría Personal & Coaching">Personal Consultancy & Coaching</option>
+            <option data-en="Leadership & Resilience Workshop" data-es="Taller de Liderazgo & Resiliencia">Leadership & Resilience Workshop</option>
+            <option data-en="Corporate Team Performance" data-es="Rendimiento de Equipos Corporativos">Corporate Team Performance</option>
+            <option data-en="Multiple / Custom Engagement" data-es="Múltiple / Compromiso Personalizado">Multiple / Custom Engagement</option>
           </select>
         </div>
         <div class="form-field" style="min-height: 110px;">
-          <label>Tell Me About Your Goals</label>
-          <textarea rows="4" placeholder="What are you looking to achieve? What challenge are you facing?"></textarea>
+          <label><span data-lang="en">Tell Me About Your Goals</span><span data-lang="es" style="display:none;">Cuéntame Sobre Tus Objetivos</span></label>
+          <textarea rows="4" id="goal-textarea" placeholder="What are you looking to achieve? What challenge are you facing?"></textarea>
         </div>
         <div class="form-submit-row">
-          <a href="mailto:cobrettieops@protonmail.com?subject=Enquiry%20%7C%20Tier%201%20Tactical" class="btn-submit" style="display:block;text-align:center;text-decoration:none;">Send Enquiry →</a>
+          <a href="mailto:cobrettieops@protonmail.com?subject=Enquiry%20%7C%20Tier%201%20Tactical" class="btn-submit" style="display:block;text-align:center;text-decoration:none;"><span data-lang="en">Send Enquiry →</span><span data-lang="es" style="display:none;">Enviar Consulta →</span></a>
         </div>
       </form>
     </div>
@@ -958,13 +1001,52 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Tier 1 Tactical</div>
-  <p class="footer-copy">© 2025 Tier 1 Tactical. All rights reserved.</p>
+  <p class="footer-copy"><span data-lang="en">© 2025 Tier 1 Tactical. All rights reserved.</span><span data-lang="es" style="display:none;">© 2025 Tier 1 Tactical. Todos los derechos reservados.</span></p>
   <ul class="footer-links">
-    <li><a href="#">Training</a></li>
-    <li><a href="#">Speaking</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#"><span data-lang="en">Training</span><span data-lang="es" style="display:none;">Entrenamiento</span></a></li>
+    <li><a href="#"><span data-lang="en">Speaking</span><span data-lang="es" style="display:none;">Conferencias</span></a></li>
+    <li><a href="#contact"><span data-lang="en">Contact</span><span data-lang="es" style="display:none;">Contacto</span></a></li>
   </ul>
 </footer>
 
+
+<script>
+function setLang(lang) {
+  document.body.classList.toggle('lang-es', lang === 'es');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+
+  // Handle inline display for es spans in nav/hero (they use style="display:none")
+  document.querySelectorAll('[data-lang]').forEach(function(el) {
+    if (el.dataset.lang === lang) {
+      el.style.display = '';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+
+  // Translate select option text
+  document.querySelectorAll('option[data-en]').forEach(function(opt) {
+    opt.textContent = lang === 'es' ? opt.dataset.es : opt.dataset.en;
+  });
+
+  // Translate placeholders
+  var orgInput = document.getElementById('org-input');
+  if (orgInput) orgInput.placeholder = lang === 'es' ? 'Nombre de empresa u organización' : 'Company or organisation name';
+  var goalTA = document.getElementById('goal-textarea');
+  if (goalTA) goalTA.placeholder = lang === 'es' ? '¿Qué quieres lograr? ¿A qué desafío te enfrentas?' : 'What are you looking to achieve? What challenge are you facing?';
+
+  // Update html lang attr
+  document.documentElement.lang = lang;
+
+  localStorage.setItem('tier1-lang', lang);
+}
+
+// On load, restore preference
+(function() {
+  var saved = localStorage.getItem('tier1-lang');
+  if (saved === 'es') setLang('es');
+})();
+</script>
 </body>
 </html>

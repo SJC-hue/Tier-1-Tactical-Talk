@@ -3,1142 +3,560 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tier 1 Tactical | Keynote Speaking & Consultancy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Tier 1 Training | Performance &amp; Longevity After 40</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --gold: #B8924A;
-    --gold-light: #D4AC6A;
-    --gold-dim: #7A5F2E;
-    --gold-faint: rgba(184,146,74,0.12);
-    --black: #2C2E30;
-    --dark: #353839;
-    --dark-mid: #3E4244;
-    --dark-surface: #484C4F;
-    --light-surface: #F4F1EB;
-    --light-mid: #E8E3D9;
-    --text-primary: #1A1916;
-    --text-on-dark: #EDE8DF;
-    --text-secondary-light: #5A5549;
-    --text-muted-light: #8A8276;
-    --text-secondary-dark: #A89F8E;
-    --text-muted-dark: #5C5850;
-    --border-light: rgba(26,25,22,0.12);
-    --border-dark: rgba(184,146,74,0.18);
-  }
+:root {
+  --cream: #f5f0e8;
+  --warm: #faf8f4;
+  --dark: #1c1a17;
+  --charcoal: #2e2b27;
+  --mid: #4a4540;
+  --muted: #8a8078;
+  --lb: #e0d9ce;
+  --border: #c8bfb0;
+  --gold: #b8903a;
+  --goldl: #d4a84d;
+  --goldp: rgba(184,144,58,0.12);
+  --teal: #3a7a70;
+  --teall: #4d9e92;
+  --tealp: rgba(58,122,112,0.1);
+  --fs: 'Playfair Display', Georgia, serif;
+  --fb: 'DM Sans', sans-serif;
+  --fm: 'DM Mono', monospace;
+  --fd: 'Bebas Neue', Impact, sans-serif;
+}
 
-  html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
-  body {
-    background: var(--light-surface);
-    color: var(--text-primary);
-    font-family: 'Barlow', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
+body {
+  background: var(--warm);
+  color: var(--dark);
+  font-family: var(--fb);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-  /* === NAV === */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 4rem;
-    background: rgba(244,241,235,0.96);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-light);
-  }
+.lang-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: var(--dark);
+  display: flex; justify-content: flex-end; align-items: center;
+  padding: 0.4rem 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.lang-toggle {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 3px; overflow: hidden;
+}
+.lang-btn {
+  font-family: var(--fm); font-size: 0.65rem;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  background: transparent; color: rgba(245,240,232,0.45);
+  border: none; cursor: pointer; transition: all 0.2s;
+}
+.lang-btn.active { background: var(--gold); color: #fff; }
+.lang-btn:hover:not(.active) { color: var(--cream); }
 
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.5rem;
-    letter-spacing: 0.12em;
-    color: var(--black);
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-  .nav-logo span {
-    color: var(--text-muted-light);
-    font-size: 0.6rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    margin-top: 3px;
-    font-weight: 400;
-  }
+nav {
+  position: fixed; top: 2.1rem; left: 0; right: 0; z-index: 100;
+  padding: 1rem 2.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--lb);
+}
+.nav-logo { font-family: var(--fs); font-size: 1.25rem; color: var(--dark); text-decoration: none; }
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-link { font-size: 0.85rem; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+.nav-link:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold); color: #fff;
+  font-size: 0.85rem; font-weight: 600;
+  padding: 0.55rem 1.3rem; border-radius: 2px;
+  text-decoration: none; transition: background 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--goldl); }
 
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-  .nav-links a {
-    color: var(--text-secondary-light);
-    text-decoration: none;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    font-weight: 400;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    background: var(--black) !important;
-    color: var(--light-surface) !important;
-    padding: 0.55rem 1.5rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem !important;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background 0.2s;
-    text-decoration: none !important;
-    font-weight: 600;
-  }
-  .nav-cta:hover { background: var(--gold) !important; }
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: 4rem;
+  padding: 9rem 2.5rem 4rem;
+  max-width: 1200px; margin: 0 auto;
+}
+.eyebrow {
+  font-family: var(--fm); font-size: 0.72rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 1.3rem;
+  display: flex; align-items: center; gap: 0.7rem;
+}
+.hero h1 {
+  font-family: var(--fs);
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  line-height: 1.1; color: var(--dark);
+  margin-bottom: 1.3rem; font-weight: 700;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub {
+  font-size: 1.05rem; color: var(--mid);
+  max-width: 480px; margin-bottom: 2rem;
+  font-weight: 300; line-height: 1.75;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+.btn-gold {
+  background: var(--gold); color: #fff;
+  font-weight: 600; font-size: 0.9rem;
+  padding: 0.85rem 1.8rem; border-radius: 2px;
+  text-decoration: none; display: inline-block;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-gold:hover { background: var(--goldl); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent; color: var(--dark);
+  font-weight: 500; font-size: 0.9rem;
+  padding: 0.85rem 1.8rem; border-radius: 2px;
+  border: 1.5px solid var(--border);
+  text-decoration: none; display: inline-block;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag {
+  font-family: var(--fm); font-size: 0.68rem;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted); border: 1px solid var(--lb);
+  padding: 0.28rem 0.75rem; background: #fff; border-radius: 2px;
+}
 
-  /* === HERO === */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    padding: 8rem 4rem 5rem;
-    gap: 0;
-    position: relative;
-    background: var(--dark);
-    overflow: hidden;
-  }
+.hero-card {
+  background: var(--dark); padding: 2.5rem;
+  border-radius: 4px; position: relative; overflow: hidden;
+}
+.hero-quote {
+  font-family: var(--fs); font-size: 1.15rem; font-style: italic;
+  color: var(--cream); line-height: 1.65; margin-bottom: 1rem;
+}
+.hero-attr {
+  font-family: var(--fm); font-size: 0.68rem;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+}
+.hero-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  gap: 0.5rem 1rem;
+}
+.hstat-n { font-family: var(--fs); font-size: 2rem; color: var(--gold); line-height: 1; }
+.hstat-l { font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase; color: rgba(245,240,232,0.4); margin-top: 0.15rem; }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 55% 70% at 80% 40%, rgba(184,146,74,0.07) 0%, transparent 70%),
-      radial-gradient(ellipse 30% 50% at 10% 90%, rgba(184,146,74,0.04) 0%, transparent 60%);
-    pointer-events: none;
-  }
+.divider { height: 1px; background: var(--lb); }
 
-  .hero-leadership {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.2rem;
-    font-weight: 600;
-  }
+.section { padding: 5rem 2.5rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-inner.narrow { max-width: 1000px; }
+.section-label {
+  font-family: var(--fm); font-size: 0.7rem;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 0.8rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.section-title {
+  font-family: var(--fs);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1.15; color: var(--dark); margin-bottom: 1.2rem;
+}
+.section-title em { font-style: italic; color: var(--gold); }
 
-  .hero-eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.8rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    width: 2rem;
-    height: 1px;
-    background: var(--gold);
-    display: block;
-    flex-shrink: 0;
-  }
+.why-bg { background: var(--cream); }
+.why-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; margin-top: 2rem; align-items: start;
+}
+.why-intro { font-size: 1rem; color: var(--mid); line-height: 1.8; margin-bottom: 1.2rem; font-weight: 300; }
+.pain-list { list-style: none; }
+.pain-list li {
+  display: flex; gap: 0.8rem; align-items: flex-start;
+  padding: 0.65rem 0; border-bottom: 1px solid var(--lb);
+  font-size: 0.92rem; color: var(--charcoal); line-height: 1.5;
+}
+.pain-list li:last-child { border-bottom: none; }
+.pdot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 0.48rem; }
+.pull-quote { background: var(--warm); border: 1px solid var(--lb); padding: 2.5rem; border-radius: 4px; }
+.pull-quote p { font-family: var(--fs); font-size: 1.15rem; font-style: italic; color: var(--dark); line-height: 1.7; margin-bottom: 0.8rem; }
+.pull-attr { font-family: var(--fm); font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); }
 
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3.2rem, 6vw, 5.5rem);
-    line-height: 1;
-    letter-spacing: 0.03em;
-    color: var(--text-on-dark);
-    margin-bottom: 2rem;
-  }
+.coach-bg { background: var(--warm); }
+.coach-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: 4rem; margin-top: 2rem; align-items: start; }
+.coach-name { font-family: var(--fs); font-size: 2.2rem; color: var(--dark); line-height: 1.1; margin-bottom: 0.3rem; }
+.coach-title { font-family: var(--fm); font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 1.5rem; }
+.coach-photo { width: 100%; max-width: 280px; border-radius: 4px; margin-bottom: 1.5rem; border: 1px solid var(--lb); display: block; }
+.coach-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--lb); border: 1px solid var(--lb); border-radius: 4px; overflow: hidden; }
+.cstat { background: var(--cream); padding: 1.1rem; text-align: center; }
+.cstat-n { font-family: var(--fs); font-size: 1.8rem; color: var(--gold); line-height: 1; }
+.cstat-l { font-size: 0.62rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-top: 0.2rem; }
+.coach-body { font-size: 1rem; color: var(--mid); line-height: 1.85; margin-bottom: 1.1rem; font-weight: 300; }
+.coach-body strong { color: var(--dark); font-weight: 600; }
+.survived-label { font-family: var(--fm); font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; margin-top: 1.3rem; }
+.survived-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.stag { font-family: var(--fm); font-size: 0.65rem; letter-spacing: 1px; text-transform: uppercase; color: var(--charcoal); border: 1px solid var(--border); padding: 0.28rem 0.65rem; border-radius: 2px; background: #fff; }
 
-  .hero h1 em {
-    font-style: normal;
-    color: var(--gold);
-  }
+.system-bg { background: var(--dark); }
+.system-bg .section-label { color: var(--goldl); }
+.system-bg .section-title { color: var(--cream); }
+.system-bg .section-title em { color: var(--gold); }
+.system-sub { font-size: 0.95rem; color: rgba(245,240,232,0.5); max-width: 480px; line-height: 1.7; margin-bottom: 0.5rem; }
+.pillars { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.2rem; margin-top: 2.5rem; }
+.pillar { background: var(--charcoal); padding: 2rem 1.5rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.07); position: relative; overflow: hidden; }
+.pillar::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); opacity: 0.55; }
+.pillar-num { font-family: var(--fm); font-size: 0.62rem; letter-spacing: 2px; color: rgba(184,144,58,0.5); margin-bottom: 0.8rem; }
+.pillar-name { font-family: var(--fs); font-size: 1.35rem; color: var(--cream); margin-bottom: 0.7rem; }
+.pillar-desc { font-size: 0.85rem; color: rgba(245,240,232,0.45); line-height: 1.65; }
 
-  .hero-desc {
-    font-size: 1rem;
-    color: var(--text-secondary-dark);
-    max-width: 680px;
-    margin-bottom: 3rem;
-    line-height: 1.85;
-    font-weight: 300;
-  }
-  .hero-desc strong { color: var(--text-on-dark); font-weight: 600; }
+.includes-bg { background: var(--cream); }
+.inc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2.5rem; }
+.inc-item { background: var(--warm); padding: 1.8rem; border: 1px solid var(--lb); border-radius: 4px; transition: border-color 0.2s, box-shadow 0.2s; }
+.inc-item:hover { border-color: var(--gold); box-shadow: 0 4px 20px rgba(184,144,58,0.07); }
+.inc-icon { font-size: 16px; margin-bottom: 0.8rem; display: block; }
+.inc-title { font-weight: 600; font-size: 0.92rem; color: var(--dark); margin-bottom: 0.45rem; }
+.inc-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
 
-  .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.who-bg { background: var(--warm); }
+.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+.who-card { padding: 2.5rem; border: 1px solid var(--lb); border-radius: 4px; }
+.who-card.yes { border-color: rgba(58,122,112,0.4); background: var(--tealp); }
+.who-card.no { background: #fff; }
+.who-title { font-family: var(--fs); font-size: 1.3rem; margin-bottom: 1.2rem; }
+.who-card.yes .who-title { color: var(--teal); }
+.who-card.no .who-title { color: var(--muted); }
+.who-list { list-style: none; }
+.who-list li { display: flex; gap: 0.7rem; align-items: flex-start; padding: 0.55rem 0; border-bottom: 1px solid var(--lb); font-size: 0.9rem; color: var(--charcoal); line-height: 1.5; }
+.who-list li:last-child { border-bottom: none; }
+.check { color: var(--teal); font-size: 0.82rem; flex-shrink: 0; margin-top: 0.1rem; }
+.cross { color: var(--muted); font-size: 0.82rem; flex-shrink: 0; margin-top: 0.1rem; }
 
-  .btn-primary {
-    background: var(--gold);
-    color: var(--dark);
-    padding: 1rem 2.5rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-weight: 700;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: background 0.2s, transform 0.1s;
-  }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.results-bg { background: var(--cream); }
+.results-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2.5rem; }
+.result-card { background: var(--warm); border: 1px solid var(--lb); padding: 1.8rem; border-radius: 4px; }
+.result-card.dark { background: var(--dark); border-color: var(--dark); }
+.result-num { font-family: var(--fm); font-size: 0.65rem; letter-spacing: 2px; color: var(--gold); margin-bottom: 0.8rem; }
+.result-card.dark .result-num { color: var(--goldl); }
+.result-title { font-weight: 600; font-size: 0.92rem; color: var(--dark); margin-bottom: 0.45rem; }
+.result-card.dark .result-title { color: var(--cream); }
+.result-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+.result-card.dark .result-desc { color: rgba(245,240,232,0.5); }
 
-  .btn-ghost {
-    background: transparent;
-    color: var(--text-secondary-dark);
-    padding: 1rem 2rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,0.18);
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+.pricing-bg { background: var(--warm); }
+.pricing-note { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; align-items: start; }
+.price-card { border: 1px solid var(--lb); padding: 2.2rem; background: var(--cream); border-radius: 4px; position: relative; display: flex; flex-direction: column; }
+.price-card.featured { border-color: var(--gold); background: var(--warm); box-shadow: 0 6px 30px rgba(184,144,58,0.1); }
+.price-card.elite { background: var(--dark); border-color: var(--dark); }
+.price-badge { position: absolute; top: -1px; left: 1.6rem; background: var(--gold); color: #fff; font-family: var(--fm); font-size: 0.58rem; letter-spacing: 2px; text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 0 0 3px 3px; }
+.price-tier { font-family: var(--fm); font-size: 0.65rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; margin-top: 0.3rem; }
+.price-card.elite .price-tier { color: var(--goldl); }
+.price-name { font-family: var(--fs); font-size: 1.3rem; color: var(--dark); margin-bottom: 0.2rem; }
+.price-card.elite .price-name { color: var(--cream); }
+.price-amount { font-family: var(--fd); font-size: 3.2rem; color: var(--dark); line-height: 1; margin: 0.8rem 0 0.2rem; letter-spacing: 1px; }
+.price-card.elite .price-amount { color: var(--cream); }
+.price-amount span { font-size: 1rem; color: var(--muted); font-family: var(--fb); font-weight: 300; }
+.price-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--lb); flex-grow: 0; }
+.price-card.elite .price-desc { color: rgba(245,240,232,0.45); border-color: rgba(255,255,255,0.1); }
+.price-features { list-style: none; margin-bottom: 1.5rem; flex-grow: 1; }
+.price-features li { display: flex; gap: 0.6rem; padding: 0.4rem 0; font-size: 0.85rem; color: var(--charcoal); }
+.price-card.elite .price-features li { color: rgba(245,240,232,0.7); }
+.price-features li::before { content: '✓'; color: var(--teal); flex-shrink: 0; font-size: 0.78rem; margin-top: 0.1rem; }
+.price-card.elite .price-features li::before { color: var(--goldl); }
+.price-avail { font-family: var(--fm); font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+.price-card.elite .price-avail { color: var(--goldl); }
+.price-btn { font-size: 0.88rem; font-weight: 500; padding: 0.8rem 1.2rem; cursor: pointer; text-decoration: none; display: block; text-align: center; border-radius: 2px; transition: all 0.2s; background: var(--gold); color: #fff; border: 1.5px solid var(--gold); }
+.price-btn:hover { background: var(--goldl); border-color: var(--goldl); }
 
-  
+.apply-bg { background: var(--dark); padding: 5rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
+.apply-bg::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(184,144,58,0.07) 0%, transparent 65%); pointer-events: none; }
+.apply-inner { max-width: 580px; margin: 0 auto; position: relative; }
+.apply-bg .section-label { justify-content: center; color: var(--goldl); }
+.apply-title { font-family: var(--fs); font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--cream); line-height: 1.15; margin-bottom: 1rem; }
+.apply-title em { font-style: italic; color: var(--gold); }
+.apply-sub { font-size: 0.95rem; color: rgba(245,240,232,0.5); line-height: 1.75; margin-bottom: 2rem; font-weight: 300; }
+.apply-form { display: flex; flex-direction: column; gap: 0.85rem; text-align: left; margin-bottom: 1.2rem; }
+.apply-form input, .apply-form select, .apply-form textarea { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: var(--cream); font-family: var(--fb); font-size: 0.9rem; padding: 0.8rem 1rem; border-radius: 2px; width: 100%; transition: border-color 0.2s; }
+.apply-form input:focus, .apply-form select:focus, .apply-form textarea:focus { outline: none; border-color: var(--gold); }
+.apply-form input::placeholder, .apply-form textarea::placeholder { color: rgba(245,240,232,0.3); }
+.apply-form select { color: rgba(245,240,232,0.7); cursor: pointer; }
+.apply-form select option { background: var(--dark); color: var(--cream); }
+.apply-form textarea { resize: vertical; min-height: 90px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+.btn-apply { background: var(--gold); color: #fff; font-family: var(--fb); font-weight: 600; font-size: 1rem; padding: 0.95rem 2rem; border: none; cursor: pointer; border-radius: 2px; width: 100%; transition: background 0.2s; letter-spacing: 0.3px; }
+.btn-apply:hover { background: var(--goldl); }
+.apply-note { font-family: var(--fm); font-size: 0.65rem; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(245,240,232,0.28); margin-top: 0.7rem; }
+.apply-email-row { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; gap: 0.8rem; flex-wrap: wrap; }
+.apply-email-label { font-family: var(--fm); font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(245,240,232,0.35); }
+.apply-email-link { font-family: var(--fm); font-size: 0.85rem; color: var(--gold); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+.apply-email-link:hover { color: var(--goldl); }
 
-  /* === STAT STRIPE === */
-  .stat-stripe {
-    background: var(--gold);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .stat-stripe-item {
-    padding: 2rem;
-    text-align: center;
-    border-right: 1px solid rgba(26,25,22,0.12);
-  }
-  .stat-stripe-item:last-child { border-right: none; }
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3rem;
-    line-height: 1;
-    color: var(--dark);
-    letter-spacing: 0.02em;
-  }
-  .stat-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: rgba(26,25,22,0.6);
-    margin-top: 0.3rem;
-    font-weight: 600;
-  }
+footer { background: var(--charcoal); border-top: 1px solid rgba(255,255,255,0.06); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: var(--fs); font-size: 1.1rem; color: var(--cream); }
+.footer-logo span { color: var(--gold); }
+.footer-text { font-size: 0.78rem; color: rgba(245,240,232,0.3); }
 
-  /* === SECTION COMMONS === */
-  section { padding: 6rem 4rem; }
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 8rem; }
+  .why-grid, .coach-grid { grid-template-columns: 1fr; }
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .inc-grid, .results-grid, .pricing-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+}
+@media (max-width: 600px) {
+  nav { padding: 1rem 1.2rem; }
+  .lang-bar { padding: 0.4rem 1.2rem; }
+  .hero { padding: 7.5rem 1.2rem 3rem; }
+  .section { padding: 3.5rem 1.2rem; }
+  .pillars, .inc-grid, .results-grid, .pricing-grid, .who-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { flex-direction: column; align-items: flex-start; }
+  .apply-bg { padding: 3.5rem 1.2rem; }
+}
 
-  .section-eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.45em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-  }
-  .section-title-light {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
-    line-height: 1;
-    letter-spacing: 0.03em;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-  }
-  .section-title-dark {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
-    line-height: 1;
-    letter-spacing: 0.03em;
-    color: var(--text-on-dark);
-    margin-bottom: 1.5rem;
-  }
-
-  .divider-rule {
-    width: 3rem;
-    height: 2px;
-    background: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-
-  /* === ABOUT === */
-  .about-section { background: var(--light-surface); }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
-  }
-
-  .about-body {
-    color: var(--text-secondary-light);
-    font-size: 1rem;
-    line-height: 1.9;
-    margin-bottom: 1.5rem;
-  }
-  .about-body strong { color: var(--text-primary); font-weight: 600; }
-
-  .quote-block {
-    border-left: 2px solid var(--gold);
-    padding: 1.2rem 0 1.2rem 1.8rem;
-    margin: 2.5rem 0;
-    background: var(--light-mid);
-  }
-  .quote-text {
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--text-primary);
-    line-height: 1.75;
-    font-weight: 400;
-  }
-
-  .achievement-list { list-style: none; }
-  .achievement-list li {
-    display: flex;
-    gap: 1.2rem;
-    padding: 1.1rem 0;
-    border-bottom: 1px solid var(--border-light);
-    align-items: flex-start;
-  }
-  .ach-icon {
-    width: 2px;
-    flex-shrink: 0;
-    margin-top: 0.6rem;
-    background: var(--gold);
-    align-self: stretch;
-  }
-  .ach-text {
-    font-size: 0.9rem;
-    color: var(--text-secondary-light);
-    line-height: 1.55;
-  }
-  .ach-text strong {
-    color: var(--text-primary);
-    display: block;
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 0.2rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  /* === SERVICES === */
-  .services-section { background: var(--dark); }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: rgba(184,146,74,0.15);
-    border: 1px solid rgba(184,146,74,0.15);
-    margin-top: 3rem;
-  }
-
-  .service-card {
-    background: var(--dark-mid);
-    padding: 3rem;
-    position: relative;
-    transition: background 0.25s;
-  }
-  .service-card:hover { background: var(--dark-surface); }
-
-  .service-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 5rem;
-    color: rgba(184,146,74,0.06);
-    line-height: 1;
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
-    letter-spacing: 0.05em;
-    user-select: none;
-  }
-
-  .service-icon-line {
-    width: 2rem;
-    height: 2px;
-    background: var(--gold);
-    margin-bottom: 1.5rem;
-  }
-
-  .service-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.05em;
-    color: var(--text-on-dark);
-    margin-bottom: 1rem;
-    line-height: 1.1;
-  }
-
-  .service-desc {
-    font-size: 0.88rem;
-    color: var(--text-secondary-dark);
-    line-height: 1.75;
-    font-weight: 300;
-  }
-
-  /* === CREDENTIALS === */
-  .creds-section { background: var(--light-mid); }
-
-  .creds-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    margin-bottom: 4rem;
-  }
-
-  .timeline {
-    position: relative;
-    padding-left: 1.5rem;
-  }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0.5rem; bottom: 0;
-    width: 1px;
-    background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
-  }
-  .timeline-item { position: relative; margin-bottom: 2.2rem; }
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -1.85rem;
-    top: 0.55rem;
-    width: 6px;
-    height: 6px;
-    background: var(--gold);
-  }
-  .timeline-era {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.63rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.3rem;
-    font-weight: 600;
-  }
-  .timeline-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--text-primary);
-    margin-bottom: 0.3rem;
-    text-transform: uppercase;
-  }
-  .timeline-detail {
-    font-size: 0.85rem;
-    color: var(--text-secondary-light);
-    line-height: 1.55;
-  }
-
-  .metrics-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border-light);
-    border: 1px solid var(--border-light);
-  }
-  .metric-cell {
-    background: var(--light-surface);
-    padding: 2.5rem 1.5rem;
-    text-align: center;
-  }
-  .metric-big {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.5rem;
-    color: var(--gold);
-    line-height: 1;
-    letter-spacing: 0.02em;
-  }
-  .metric-sub {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.63rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--text-muted-light);
-    margin-top: 0.5rem;
-    font-weight: 400;
-  }
-
-  /* === QUOTE BAND === */
-  .quote-band {
-    background: var(--dark);
-    border-top: 1px solid rgba(184,146,74,0.15);
-    border-bottom: 1px solid rgba(184,146,74,0.15);
-    padding: 5rem 4rem;
-    text-align: center;
-  }
-  .band-quote {
-    font-style: italic;
-    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-    color: var(--text-on-dark);
-    max-width: 780px;
-    margin: 0 auto 1.5rem;
-    line-height: 1.65;
-    font-weight: 300;
-  }
-  .band-attr {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.45em;
-    text-transform: uppercase;
-    color: var(--gold-dim);
-    font-weight: 400;
-  }
-
-  /* === CONTACT === */
-  .contact-section { background: var(--light-surface); }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
-  }
-
-  .contact-body {
-    color: var(--text-secondary-light);
-    font-size: 1rem;
-    line-height: 1.85;
-    margin-bottom: 2rem;
-  }
-
-  .contact-links { margin-top: 2rem; }
-  .contact-link-item {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--text-muted-light);
-    margin-bottom: 0.7rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .contact-link-item::before {
-    content: '';
-    width: 1rem;
-    height: 1px;
-    background: var(--gold);
-    display: block;
-    flex-shrink: 0;
-  }
-  .contact-link-item a { color: var(--gold); text-decoration: none; }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--border-light);
-    border: 1px solid var(--border-light);
-  }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; }
-  .form-field {
-    background: white;
-    padding: 1.2rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-  .form-field label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.58rem;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-  }
-  .form-field input,
-  .form-field select,
-  .form-field textarea {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--text-primary);
-    font-family: 'Barlow', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 300;
-    resize: none;
-    width: 100%;
-  }
-  .form-field input::placeholder,
-  .form-field textarea::placeholder { color: var(--text-muted-light); }
-  .form-field select { cursor: pointer; }
-  .form-field select option { background: white; }
-
-  .form-submit-row { background: var(--dark); padding: 0; }
-  .btn-submit {
-    width: 100%;
-    background: var(--dark);
-    color: var(--gold);
-    border: none;
-    padding: 1.3rem;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 0.2em;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-  }
-  .btn-submit:hover { background: var(--gold); color: var(--dark); }
-
-  /* === FOOTER === */
-  footer {
-    background: var(--dark);
-    border-top: 1px solid rgba(184,146,74,0.12);
-    padding: 2.5rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-  }
-  .footer-copy {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-    color: var(--text-muted-dark);
-    text-transform: uppercase;
-  }
-  .footer-links { display: flex; gap: 2rem; list-style: none; }
-  .footer-links a {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--text-muted-dark);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--gold); }
-
-  /* === HAMBURGER BUTTON === */
-  .nav-hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 6px;
-    z-index: 200;
-  }
-  .nav-hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: var(--black);
-    transition: transform 0.3s, opacity 0.3s;
-    transform-origin: center;
-  }
-  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-  /* === MOBILE MENU OVERLAY === */
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(244,241,235,0.98);
-    backdrop-filter: blur(12px);
-    z-index: 150;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 6rem 2rem 3rem;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a {
-    color: var(--text-secondary-light);
-    text-decoration: none;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-weight: 400;
-    transition: color 0.2s;
-  }
-  .mobile-menu a:hover { color: var(--gold); }
-  .mobile-menu .mobile-cta {
-    background: var(--black);
-    color: var(--light-surface) !important;
-    padding: 0.9rem 2.5rem;
-    font-weight: 600;
-    font-size: 0.85rem !important;
-    letter-spacing: 0.25em;
-    margin-top: 0.5rem;
-  }
-  .mobile-menu .mobile-cta:hover { background: var(--gold) !important; color: var(--dark) !important; }
-
-  /* === RESPONSIVE === */
-  @media (max-width: 900px) {
-    nav { padding: 1rem 1.5rem; gap: 0.75rem; }
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
-    /* lang-switcher stays visible always — no override needed */
-    .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 3rem; }
-    .photo-frame { width: 240px; }
-    section { padding: 4rem 1.5rem; }
-    .about-grid, .contact-grid, .creds-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .metrics-row { grid-template-columns: 1fr 1fr; }
-    .stat-stripe { grid-template-columns: 1fr 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
-  }
-
-  /* === PHOTO SECTION === */
-  .photo-section {
-    background: var(--light-mid);
-    padding: 5rem 4rem;
-    display: flex;
-    align-items: center;
-    gap: 5rem;
-    border-bottom: 1px solid var(--border-light);
-  }
-  .photo-frame-outer {
-    position: relative;
-    flex-shrink: 0;
-    width: 300px;
-  }
-  .photo-frame-outer::before {
-    content: '';
-    position: absolute;
-    top: -10px; right: -10px; bottom: 10px; left: 10px;
-    border: 1px solid rgba(184,146,74,0.35);
-    z-index: 0;
-  }
-  .photo-frame-outer img {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    display: block;
-    filter: grayscale(15%) contrast(1.05);
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-  }
-  .photo-name { flex: 1; }
-  .photo-name strong {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3rem;
-    letter-spacing: 0.06em;
-    color: var(--text-primary);
-    display: block;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-  .photo-name .photo-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    display: block;
-    margin-bottom: 1.5rem;
-  }
-  .photo-name p {
-    color: var(--text-secondary-light);
-    font-size: 0.95rem;
-    line-height: 1.85;
-    max-width: 500px;
-  }
-  @media (max-width: 900px) {
-    .photo-section { flex-direction: column; padding: 3rem 1.5rem; gap: 2.5rem; }
-    .photo-frame-outer { width: 220px; }
-  }
-
-
-  /* === LANG SWITCHER === */
-  .lang-switcher {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    border: 1px solid var(--border-light);
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  .lang-btn {
-    background: transparent;
-    border: none;
-    padding: 0.4rem 0.75rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--text-muted-light);
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-    font-weight: 600;
-  }
-  .lang-btn.active {
-    background: var(--black);
-    color: var(--light-surface);
-  }
-  .lang-btn:hover:not(.active) { color: var(--gold); }
-
-  /* Translation visibility */
-  [data-lang="es"] { display: none; }
-  body.lang-es [data-lang="en"] { display: none; }
-  body.lang-es [data-lang="es"] { display: revert; }
-  body.lang-es [data-lang="es"].flex-item { display: flex; }
-  body.lang-es [data-lang="es"].inline-item { display: inline; }
-
+[data-lang] { display: none; }
+.lang-en [data-lang="en"], .lang-es [data-lang="es"] { display: revert; }
 </style>
 </head>
-<body>
+<body id="top" class="lang-en">
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Tier 1 Tactical<span>Speaking & Consultancy</span></a>
-  <ul class="nav-links">
-    <li><a href="#about"><span data-lang="en">About</span><span data-lang="es" style="display:none;">Sobre Mí</span></a></li>
-    <li><a href="#services"><span data-lang="en">Services</span><span data-lang="es" style="display:none;">Servicios</span></a></li>
-    <li><a href="#credentials"><span data-lang="en">Credentials</span><span data-lang="es" style="display:none;">Credenciales</span></a></li>
-    <li><a href="mailto:cobrettieops@protonmail.com" class="nav-cta"><span data-lang="en">Send Enquiry</span><span data-lang="es" style="display:none;">Enviar Consulta</span></a></li>
-  </ul>
-  <div class="lang-switcher">
-    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+<div class="lang-bar">
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+    <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
   </div>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" onclick="toggleMobileMenu()">
-    <span></span><span></span><span></span>
-  </button>
+</div>
+
+<nav>
+  <a href="#top" class="nav-logo">Tier 1 <span>Training</span></a>
+  <div class="nav-links"></div>
+  <a href="#apply" class="nav-cta">
+    <span data-lang="en">Apply Now</span>
+    <span data-lang="es">Solicitar Ahora</span>
+  </a>
 </nav>
 
-<!-- MOBILE MENU OVERLAY -->
-<div class="mobile-menu" id="mobile-menu">
-  <a href="#about" onclick="closeMobileMenu()"><span data-lang="en">About</span><span data-lang="es" style="display:none;">Sobre Mí</span></a>
-  <a href="#services" onclick="closeMobileMenu()"><span data-lang="en">Services</span><span data-lang="es" style="display:none;">Servicios</span></a>
-  <a href="#credentials" onclick="closeMobileMenu()"><span data-lang="en">Credentials</span><span data-lang="es" style="display:none;">Credenciales</span></a>
-  <a href="mailto:cobrettieops@protonmail.com" class="mobile-cta" onclick="closeMobileMenu()"><span data-lang="en">Send Enquiry</span><span data-lang="es" style="display:none;">Enviar Consulta</span></a>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <p class="hero-leadership"><span data-lang="en">Leadership Development Under Human Performance</span><span data-lang="es" style="display:none;">Desarrollo de Liderazgo Bajo Rendimiento Humano</span></p>
-    <h1><span data-lang="en">Former Special Forces.<br><span style="color:var(--gold);">Human Performance.</span><br>Leadership Development.</span><span data-lang="es" style="display:none;">Ex Fuerzas Especiales.<br><span style="color:var(--gold);">Rendimiento Humano.</span><br>Desarrollo de Liderazgo.</span></h1>
-    <p class="hero-desc">
-      <span data-lang="en">I channel hard-won lessons from the world's most demanding environments into speaking, coaching, and consultancy for individuals, teams, and organisations who want to operate at a genuinely elite level.</span>
-      <span data-lang="es" style="display:none;">Canalizo lecciones ganadas con esfuerzo en los entornos más exigentes del mundo en conferencias, coaching y consultoría para individuos, equipos y organizaciones que quieren operar a un nivel genuinamente de élite.</span>
+<div class="hero">
+  <div class="hero-left">
+    <p class="eyebrow">
+      <span data-lang="en">Performance Longevity · Specializing in ages 40–65+</span>
+      <span data-lang="es">Longevidad y Rendimiento · Especialistas en mayores de 40–65+</span>
     </p>
-    <div class="hero-actions">
-      <a href="mailto:cobrettieops@protonmail.com?subject=Enquiry%20%7C%20Tier%201%20Tactical" class="btn-primary"><span data-lang="en">Send Enquiry</span><span data-lang="es" style="display:none;">Enviar Consulta</span></a>
-      <a href="#services" class="btn-ghost"><span data-lang="en">View Services</span><span data-lang="es" style="display:none;">Ver Servicios</span></a>
+    <h1>
+      <span data-lang="en">Train Smarter.<br>Age <em>Better.</em><br>Live More.</span>
+      <span data-lang="es">Entrena Mejor.<br>Envejece <em>Mejor.</em><br>Vive Más.</span>
+    </h1>
+    <p class="hero-sub">
+      <span data-lang="en">A proven coaching system built for men and women who want to stay strong, energetic, and capable: not just in the gym, but in every part of their life.</span>
+      <span data-lang="es">Un sistema de entrenamiento probado para hombres y mujeres que quieren mantenerse fuertes, enérgicos y capaces: no solo en el gimnasio, sino en cada parte de su vida.</span>
+    </p>
+    <div class="hero-btns">
+      <a href="#apply" class="btn-gold">
+        <span data-lang="en">Apply Now</span>
+        <span data-lang="es">Solicitar Ahora</span>
+      </a>
+      <a href="#system" class="btn-outline">
+        <span data-lang="en">See the System</span>
+        <span data-lang="es">Ver el Sistema</span>
+      </a>
     </div>
-  </div></div>
-</section>
-
-<!-- PHOTO SECTION -->
-<div class="photo-section">
-  <div class="photo-frame-outer">
-    <img src="data:image/jpeg;base64,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" alt="Simon Cobrettie">
   </div>
-  <div class="photo-name">
-    <strong>Simon Cobrettie</strong>
-    <span class="photo-title"><span data-lang="en">Founder · Tier 1 Tactical</span><span data-lang="es" style="display:none;">Fundador · Tier 1 Tactical</span></span>
-    <p><span data-lang="en">Former Special Forces operator. Ironman athlete, competitive bodybuilder, and human performance advocate. I channel everything learned across two decades of extreme environments into speaking and consultancy for individuals, teams, and organisations ready to operate at a genuinely elite level.</span><span data-lang="es" style="display:none;">Ex operador de Fuerzas Especiales. Atleta Ironman, culturista competitivo y defensor del rendimiento humano. Canalizo todo lo aprendido en dos décadas de entornos extremos en conferencias y consultoría para individuos, equipos y organizaciones listos para operar a un nivel genuinamente de élite.</span></p>
+  <div class="hero-card">
+    <p class="hero-quote">
+      <span data-lang="en">"I'm 58. I've survived combat and cancer. I still train at a high level every day. You're not hiring a trainer: you're getting 40 years of tested performance systems."</span>
+      <span data-lang="es">"Tengo 58 años. He sobrevivido al combate y al cáncer. Sigo entrenando a alto nivel cada día. No estás contratando a un entrenador: estás obteniendo 40 años de sistemas de rendimiento probados."</span>
+    </p>
+    <div class="hero-attr">
+      <span data-lang="en">Your Coach · Tier 1 Training</span>
+      <span data-lang="es">Tu Entrenador · Tier 1 Training</span>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hstat-n">40+</div>
+        <div class="hstat-l"><span data-lang="en">Years under load</span><span data-lang="es">Años de carga</span></div>
+      </div>
+      <div>
+        <div class="hstat-n">4×</div>
+        <div class="hstat-l"><span data-lang="en">Ironman finisher</span><span data-lang="es">Ironman completado</span></div>
+      </div>
+      <div>
+        <div class="hstat-n">58</div>
+        <div class="hstat-l"><span data-lang="en">Age, still competing</span><span data-lang="es">Años, en competición</span></div>
+      </div>
+      <div>
+        <div class="hstat-n">13%</div>
+        <div class="hstat-l"><span data-lang="en">Body fat today</span><span data-lang="es">Grasa corporal hoy</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- ABOUT -->
-<section id="about" class="about-section">
-  <div class="about-grid">
-    <div>
-      <h2 class="section-title-light"><span data-lang="en">Forged in Environments Where Failure Isn't an Option</span><span data-lang="es" style="display:none;">Forjado en Entornos Donde el Fracaso No es una Opción</span></h2>
-      <p class="about-body">
-        <span data-lang="en">I've spent my life in environments where the margin for error is zero and that's shaped everything I do. Twelve years in Special Forces.</span><span data-lang="es" style="display:none;">He pasado mi vida en entornos donde el margen de error es cero y eso ha moldeado todo lo que hago. Doce años en Fuerzas Especiales.</span>
-      </p>
-      <p class="about-body">
-        <span data-lang="en">Those years built more than physical toughness. They forged a framework for decision-making under pressure, leading through ambiguity, and sustaining performance when everything around you is in chaos.</span><span data-lang="es" style="display:none;">Esos años construyeron más que fortaleza física. Forjaron un marco para la toma de decisiones bajo presión, liderar en la ambigüedad y mantener el rendimiento cuando todo a tu alrededor está en caos.</span>
-      </p>
-      <div class="quote-block">
-        <p class="quote-text"><span data-lang="en">"I've survived combat, two heart attacks, and cancer and I still train at a high level every day. What I bring to every room isn't just a story. It's a tested operating system for human performance."</span><span data-lang="es" style="display:none;">"He sobrevivido al combate, dos infartos y cáncer, y sigo entrenando a alto nivel cada día. Lo que traigo a cada sala no es solo una historia. Es un sistema operativo probado para el rendimiento humano."</span></p>
-      </div>
-      <p class="about-body">
-      <p class="about-body">
-        <span data-lang="en">Beyond the battlefield: mountain summits, <strong>over 50 triathlons including four full Ironman races</strong>, competitive bodybuilding, and open-sea swimming challenges. These aren't just athletic achievements. They're a commitment to pushing the boundaries of what's possible.</span><span data-lang="es" style="display:none;">Más allá del campo de batalla: cumbres de montañas, <strong>más de 50 triatlones incluyendo cuatro Ironman completos</strong>, culturismo competitivo y desafíos de natación en mar abierto. No son solo logros atléticos. Son un compromiso con ampliar los límites de lo posible.</span>
-      </p>
-      </p>
-      <br>
-    </div>
+<div class="divider"></div>
 
-    <div>
-      <ul class="achievement-list">
-        <li>
-          <div class="ach-icon"></div>
-          <div class="ach-text">
-            <strong><span data-lang="en">Special Forces Veteran</span><span data-lang="es" style="display:none;">Veterano de Fuerzas Especiales</span></strong>
-            <span data-lang="en">12 years of elite military service including selection, advanced training, and multi-theater combat operations.</span><span data-lang="es" style="display:none;">12 años de servicio militar de élite incluyendo selección, entrenamiento avanzado y operaciones de combate en múltiples teatros.</span>
-          </div>
-        </li>
-        <li>
-          <div class="ach-icon"></div>
-          <div class="ach-text">
-            <strong><span data-lang="en">4× Full Ironman Finisher</span><span data-lang="es" style="display:none;">4× Finalizador Ironman Completo</span></strong>
-            <span data-lang="en">140.6 miles 2.4mi swim, 112mi bike, 26.2mi marathon. Completed four times.</span><span data-lang="es" style="display:none;">226 km: 3,8km natación, 180km ciclismo, 42,2km maratón. Completado cuatro veces.</span>
-          </div>
-        </li>
-        <li>
-          <div class="ach-icon"></div>
-          <div class="ach-text">
-            <strong><span data-lang="en">50+ Triathlons</span><span data-lang="es" style="display:none;">+50 Triatlones</span></strong>
-            <span data-lang="en">A career-long commitment to multisport endurance racing at every distance.</span><span data-lang="es" style="display:none;">Un compromiso de por vida con las carreras de resistencia multideporte en todas las distancias.</span>
-          </div>
-        </li>
-        <li>
-          <div class="ach-icon"></div>
-          <div class="ach-text">
-            <strong><span data-lang="en">Open-Sea Swimming Challenges</span><span data-lang="es" style="display:none;">Desafíos de Natación en Mar Abierto</span></strong>
-            <span data-lang="en">Demanding open-water events requiring navigation, endurance, and mental toughness under pressure.</span><span data-lang="es" style="display:none;">Exigentes eventos en aguas abiertas que requieren navegación, resistencia y fortaleza mental bajo presión.</span>
-          </div>
-        </li>
-        <li>
-          <div class="ach-icon"></div>
-          <div class="ach-text">
-            <strong><span data-lang="en">Competitive Bodybuilder</span><span data-lang="es" style="display:none;">Culturista Competitivo</span></strong>
-            <span data-lang="en">Stage-level physique competition precision nutrition, programming, and elite-level discipline.</span><span data-lang="es" style="display:none;">Competición de físico a nivel de escenario, nutrición de precisión, programación y disciplina de nivel élite.</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="services-section">
-  <h2 class="section-title-dark"><span data-lang="en">Engagements Built for Impact</span><span data-lang="es" style="display:none;">Compromisos Construidos para el Impacto</span></h2>
-  <p style="color: var(--text-secondary-dark); max-width: 540px; font-size: 0.95rem; line-height: 1.85; font-weight: 300;">
-    <span data-lang="en">Everything I deliver comes from lived experience not theory. If you're ready to perform at a different level, let's talk.</span><span data-lang="es" style="display:none;">Todo lo que entrego proviene de la experiencia vivida, no de la teoría. Si estás listo para rendir a un nivel diferente, hablemos.</span>
-  </p>
-
-  <div class="services-grid">
-    <div class="service-card">
-      <span class="service-num">01</span>
-      <div class="service-icon-line"></div>
-      <h3 class="service-name"><span data-lang="en">Keynote & Motivational Speaking</span><span data-lang="es" style="display:none;">Conferencias & Charlas Motivacionales</span></h3>
-      <p class="service-desc"><span data-lang="en">Stage presentations that go beyond inspiration. Audiences leave with frameworks they can deploy decision-making under pressure, resilience in adversity, and the mindset that separates performers from the rest. Available for conferences and corporate events.</span><span data-lang="es" style="display:none;">Presentaciones en escenario que van más allá de la inspiración. El público se va con marcos que puede aplicar: toma de decisiones bajo presión, resiliencia en la adversidad y la mentalidad que separa a los que rinden del resto. Disponible para conferencias y eventos corporativos.</span></p>
-    </div>
-    <div class="service-card">
-      <span class="service-num">02</span>
-      <div class="service-icon-line"></div>
-      <h3 class="service-name"><span data-lang="en">Personal Consultancy & Coaching</span><span data-lang="es" style="display:none;">Consultoría Personal & Coaching</span></h3>
-      <p class="service-desc"><span data-lang="en">One-on-one engagement for individuals operating at or aiming for the highest level. Drawing on military performance psychology, endurance training, and real-world leadership, this is not cookie-cutter coaching. It's a tested system, built for results.</span><span data-lang="es" style="display:none;">Sesiones individuales para personas que operan o aspiran al nivel más alto. Basado en psicología del rendimiento militar, entrenamiento de resistencia y liderazgo real. No es coaching genérico. Es un sistema probado, diseñado para resultados.</span></p>
-    </div>
-    <div class="service-card">
-      <span class="service-num">03</span>
-      <div class="service-icon-line"></div>
-      <h3 class="service-name"><span data-lang="en">Leadership & Resilience Workshops</span><span data-lang="es" style="display:none;">Talleres de Liderazgo & Resiliencia</span></h3>
-      <p class="service-desc"><span data-lang="en">Intensive half-day and full-day workshops for leadership teams who want to develop genuine resilience not just an awareness of it. Built around Special Forces leadership principles, stress inoculation, and high-stakes decision-making frameworks.</span><span data-lang="es" style="display:none;">Talleres intensivos de medio día y día completo para equipos de liderazgo que quieren desarrollar resiliencia genuina, no solo consciencia de ella. Basados en principios de liderazgo de Fuerzas Especiales, inoculación al estrés y marcos de decisión de alto riesgo.</span></p>
-    </div>
-    <div class="service-card">
-      <span class="service-num">04</span>
-      <div class="service-icon-line"></div>
-      <h3 class="service-name"><span data-lang="en">Corporate & Team Performance</span><span data-lang="es" style="display:none;">Rendimiento Corporativo & de Equipos</span></h3>
-      <p class="service-desc"><span data-lang="en">Custom engagements designed around your organisation's specific challenges. Whether it's building high-performance culture, developing leaders under pressure, or unlocking team cohesion I bring a military-grade operational lens to the corporate environment.</span><span data-lang="es" style="display:none;">Compromisos personalizados diseñados en torno a los desafíos específicos de su organización. Ya sea construir una cultura de alto rendimiento, desarrollar líderes bajo presión o desbloquear la cohesión del equipo, aporto una perspectiva operativa de grado militar al entorno corporativo.</span></p>
-    </div>
-  </div>
-</section>
-
-<!-- CREDENTIALS -->
-<section id="credentials" class="creds-section">
-  <div class="creds-grid">
-    <div>
-      <h2 class="section-title-light"><span data-lang="en">Experience That Cannot Be Manufactured</span><span data-lang="es" style="display:none;">Experiencia Que No Puede Fabricarse</span></h2>
-      <p class="about-body">
-        <span data-lang="en">Everything I deliver comes from direct, lived experience. No borrowed frameworks, no second-hand knowledge. The principles I teach have been tested in environments where failure is not an option and in the endurance arena where your mind will try to quit long before your body should.</span><span data-lang="es" style="display:none;">Todo lo que entrego proviene de experiencia directa y vivida. Sin marcos prestados, sin conocimiento de segunda mano. Los principios que enseño han sido probados en entornos donde el fracaso no es una opción y en la arena de la resistencia donde tu mente intentará rendirse mucho antes de que tu cuerpo deba hacerlo.</span>
-      </p>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item">
-        <p class="timeline-era"><span data-lang="en">Military Service</span><span data-lang="es" style="display:none;">Servicio Militar</span></p>
-        <p class="timeline-title"><span data-lang="en">Special Forces Veteran</span><span data-lang="es" style="display:none;">Veterano de Fuerzas Especiales</span></p>
-        <p class="timeline-detail"><span data-lang="en">12 years total service. Elite selection, advanced training, and deployment across multiple theaters of active combat.</span><span data-lang="es" style="display:none;">12 años de servicio total. Selección de élite, entrenamiento avanzado y despliegue en múltiples teatros de combate activo.</span></p>
+<div class="section why-bg">
+  <div class="section-inner">
+    <h2 class="section-title">
+      <span data-lang="en">Your body has changed.<br><em>Your approach should too.</em></span>
+      <span data-lang="es">Tu cuerpo ha cambiado.<br><em>Tu enfoque también debería.</em></span>
+    </h2>
+    <div class="why-grid">
+      <div>
+        <p class="why-intro">
+          <span data-lang="en">After 40, the fitness advice that worked in your 30s simply doesn't apply anymore. Most training programmes ignore recovery, hormonal shifts, and joint health. You need something built specifically for where you are now.</span>
+          <span data-lang="es">Después de los 40, el consejo de fitness que funcionaba en tus 30 ya no aplica. La mayoría de los programas de entrenamiento ignoran la recuperación, los cambios hormonales y la salud articular. Necesitas algo diseñado específicamente para donde estás ahora.</span>
+        </p>
+        <ul class="pain-list">
+          <li><span class="pdot"></span><span data-lang="en">Energy dips that weren't there five years ago</span><span data-lang="es">Bajadas de energía que no existían hace cinco años</span></li>
+          <li><span class="pdot"></span><span data-lang="en">Injuries that take longer to heal, or don't fully heal</span><span data-lang="es">Lesiones que tardan más en curar, o que no sanan del todo</span></li>
+          <li><span class="pdot"></span><span data-lang="en">Body composition shifting despite doing "the right things"</span><span data-lang="es">Composición corporal que cambia a pesar de hacer "lo correcto"</span></li>
+          <li><span class="pdot"></span><span data-lang="en">Random gym sessions that don't add up to real progress</span><span data-lang="es">Sesiones aleatorias en el gimnasio que no generan progreso real</span></li>
+          <li><span class="pdot"></span><span data-lang="en">Trainers who've never experienced the challenges you face</span><span data-lang="es">Entrenadores que nunca han vivido los retos que tú enfrentas</span></li>
+          <li><span class="pdot"></span><span data-lang="en">Stress and sleep affecting your recovery and performance</span><span data-lang="es">El estrés y el sueño afectando tu recuperación y rendimiento</span></li>
+        </ul>
       </div>
-      <div class="timeline-item">
-        <p class="timeline-era"><span data-lang="en">Special Operations</span><span data-lang="es" style="display:none;">Operaciones Especiales</span></p>
-        <p class="timeline-title"><span data-lang="en">Special Forces Operator</span><span data-lang="es" style="display:none;">Operador de Fuerzas Especiales</span></p>
-        <p class="timeline-detail"><span data-lang="en">Highest tier of US special operations. Counter-terrorism, direct action, and clandestine operations across multiple theaters.</span><span data-lang="es" style="display:none;">El nivel más alto de las operaciones especiales de EE.UU. Contraterrorismo, acción directa y operaciones clandestinas en múltiples teatros.</span></p>
-      </div>
-      <div class="timeline-item">
-        <p class="timeline-era"><span data-lang="en">Combat Record</span><span data-lang="es" style="display:none;">Historial de Combate</span></p>
-        <p class="timeline-title"><span data-lang="en">8+ Years Active Combat Missions</span><span data-lang="es" style="display:none;">8+ Años de Misiones de Combate Activo</span></p>
-        <p class="timeline-detail"><span data-lang="en">8 of 12 years spent on active combat missions, having lived through extreme PTSD.</span><span data-lang="es" style="display:none;">8 de 12 años en misiones de combate activo, habiendo vivido un PTSD extremo.</span></p>
-      </div>
-      <div class="timeline-item">
-        <p class="timeline-era"><span data-lang="en">Today</span><span data-lang="es" style="display:none;">Hoy</span></p>
-        <p class="timeline-title"><span data-lang="en">Tier 1 Tactical Speaker & Consultant</span><span data-lang="es" style="display:none;">Conferenciante y Consultor Tier 1 Tactical</span></p>
-        <p class="timeline-detail"><span data-lang="en">Channelling hard-won operational insight into speaking, coaching, and corporate performance engagements worldwide.</span><span data-lang="es" style="display:none;">Canalizando conocimientos operativos ganados con esfuerzo en conferencias, coaching y compromisos de rendimiento corporativo en todo el mundo.</span></p>
+      <div class="pull-quote">
+        <p>
+          <span data-lang="en">"After 40, the goal shifts from building peak performance to building performance that lasts. That requires a completely different approach: and a coach who understands it from the inside."</span>
+          <span data-lang="es">"Después de los 40, el objetivo pasa de alcanzar el rendimiento máximo a construir un rendimiento que dure. Eso requiere un enfoque completamente diferente: y un entrenador que lo entienda desde dentro."</span>
+        </p>
+        <div class="pull-attr">
+          <span data-lang="en">Tier 1 Training Philosophy</span>
+          <span data-lang="es">Filosofía de Tier 1 Training</span>
+        </div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- QUOTE BAND -->
-<div style="background:#1c1c1c;padding:60px 5%;text-align:center;">
-  <p class="band-quote" style="color:rgba(255,255,255,0.45);font-weight:200;"><span data-lang="en">"I'm not in the room only to inspire you. I'm here to give you a system that works when everything else is failing, because failure wasn't an option for me."</span><span data-lang="es" style="display:none;">"No estoy en la sala solo para inspirarte. Estoy aquí para darte un sistema que funciona cuando todo lo demás falla, porque el fracaso no era una opción para mí."</span></p>
-  <p class="band-attr" style="color:rgba(255,255,255,0.3);">  Tier 1 Tactical</p>
 </div>
 
-<!-- PERSONAL TRAINING -->
-<section style="background:#000000;padding:60px 5%;text-align:center;border-top:1px solid rgba(255,255,255,0.08);">
-  <p style="text-transform:uppercase;letter-spacing:0.15em;font-size:0.75rem;color:var(--gold);margin-bottom:12px;"><span data-lang="en">Personal Training</span><span data-lang="es" style="display:none;">Entrenamiento Personal</span></p>
-  <h2 style="font-size:clamp(1.4rem,3vw,2rem);color:var(--gold);margin-bottom:16px;"><span data-lang="en">Ready to Train at a Different Level?</span><span data-lang="es" style="display:none;">¿Listo para Entrenar a un Nivel Diferente?</span></h2>
-  <p style="max-width:560px;margin:0 auto 32px;color:rgba(255,255,255,0.65);font-size:0.97rem;line-height:1.7;"><span data-lang="en">Programmes built on two decades of elite operational experience — designed for individuals who are serious about physical and mental performance. Visit my personal training site to find out more.</span><span data-lang="es" style="display:none;">Programas construidos sobre dos décadas de experiencia operativa de élite — diseñados para individuos serios sobre el rendimiento físico y mental. Visita mi sitio de entrenamiento personal para saber más.</span></p>
-  <a href="https://tier1t.cobrettieops.workers.dev/#system" target="_blank" rel="noopener noreferrer" class="btn-primary"><span data-lang="en">Go to Site</span><span data-lang="es" style="display:none;">Ir al Sitio</span></a>
-</section>
+<div class="divider"></div>
 
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="contact-grid">
-    <div>
-      <h2 class="section-title-light"><span data-lang="en">Ready to Perform at a Different Level?</span><span data-lang="es" style="display:none;">¿Listo para Rendir a un Nivel Diferente?</span></h2>
-      <p class="contact-body">
-        <span data-lang="en">Whether you need a keynote speaker who delivers more than a story, a coach who's operated at the absolute edge, or a partner to transform your team's performance fill out the form and I'll be in touch within 24 hours.</span><span data-lang="es" style="display:none;">Ya sea que necesite un conferenciante que entregue más que una historia, un coach que haya operado al límite absoluto, o un socio para transformar el rendimiento de su equipo — complete el formulario y me pondré en contacto en 24 horas.</span>
-      </p>
-
-    </div>
-
-    <div>
-      <form class="contact-form" onsubmit="return false;">
-        <div class="form-row">
-          <div class="form-field">
-            <label><span data-lang="en">First Name</span><span data-lang="es" style="display:none;">Nombre</span></label>
-            <input type="text" placeholder="John">
-          </div>
-          <div class="form-field">
-            <label><span data-lang="en">Last Name</span><span data-lang="es" style="display:none;">Apellido</span></label>
-            <input type="text" placeholder="Smith">
-          </div>
+<div class="section coach-bg">
+  <div class="section-inner">
+    <h2 class="section-title">
+      <span data-lang="en">A coach who has<br><em>lived it himself.</em></span>
+      <span data-lang="es">Un entrenador que lo ha<br><em>vivido él mismo.</em></span>
+    </h2>
+    <div class="coach-grid">
+      <div>
+        <div class="coach-name">
+          <span data-lang="en">Your Coach</span>
+          <span data-lang="es">Tu Entrenador</span>
         </div>
-        <div class="form-field">
-          <label><span data-lang="en">Email</span><span data-lang="es" style="display:none;">Correo Electrónico</span></label>
-          <input type="email" placeholder="john@organisation.com">
+        <div class="coach-title">
+          <span data-lang="en">Founder · Tier 1 Training</span>
+          <span data-lang="es">Fundador · Tier 1 Training</span>
         </div>
-        <div class="form-field">
-          <label><span data-lang="en">Organisation</span><span data-lang="es" style="display:none;">Organización</span></label>
-          <input type="text" placeholder="Company or organisation name" id="org-input">
+        <img src="2026.jpeg" class="coach-photo" alt="Your Coach">
+      </div>
+      <div>
+        <p class="coach-body" data-lang="en">With <strong>40+ years under load</strong>, a background in elite military service, and personal experience overcoming cancer, this isn't coaching from a textbook. It's a system forged under real pressure.</p>
+        <p class="coach-body" data-lang="es">Con <strong>más de 40 años de entrenamiento</strong>, experiencia en servicio militar de élite y haber superado personalmente el cáncer, esto no es un entrenamiento de libro de texto. Es un sistema forjado bajo presión real.</p>
+        <p class="coach-body" data-lang="en">As a <strong>4× Ironman finisher</strong> still competing at 58 with 13% body fat, every method here is proven — not theorised.</p>
+        <p class="coach-body" data-lang="es">Como <strong>completador de 4 Ironman</strong> que sigue compitiendo a los 58 años con un 13% de grasa corporal, cada método aquí está probado, no teorizado.</p>
+        <div class="coach-stats">
+          <div class="cstat"><div class="cstat-n">40+</div><div class="cstat-l"><span data-lang="en">Yrs training</span><span data-lang="es">Años entrando</span></div></div>
+          <div class="cstat"><div class="cstat-n">4×</div><div class="cstat-l"><span data-lang="en">Ironman</span><span data-lang="es">Ironman</span></div></div>
+          <div class="cstat"><div class="cstat-n">58</div><div class="cstat-l"><span data-lang="en">Age</span><span data-lang="es">Edad</span></div></div>
+          <div class="cstat"><div class="cstat-n">13%</div><div class="cstat-l"><span data-lang="en">Body fat</span><span data-lang="es">Grasa</span></div></div>
         </div>
-        <div class="form-field">
-          <label><span data-lang="en">Engagement Type</span><span data-lang="es" style="display:none;">Tipo de Compromiso</span></label>
-          <select>
-            <option value=""><span data-lang="en">Select an engagement</span></option>
-            <option data-en="Keynote / Motivational Speaking" data-es="Conferencia / Charla Motivacional">Keynote / Motivational Speaking</option>
-            <option data-en="Personal Consultancy & Coaching" data-es="Consultoría Personal & Coaching">Personal Consultancy & Coaching</option>
-            <option data-en="Leadership & Resilience Workshop" data-es="Taller de Liderazgo & Resiliencia">Leadership & Resilience Workshop</option>
-            <option data-en="Corporate Team Performance" data-es="Rendimiento de Equipos Corporativos">Corporate Team Performance</option>
-            <option data-en="Multiple / Custom Engagement" data-es="Múltiple / Compromiso Personalizado">Multiple / Custom Engagement</option>
-          </select>
-        </div>
-        <div class="form-field" style="min-height: 110px;">
-          <label><span data-lang="en">Tell Me About Your Goals</span><span data-lang="es" style="display:none;">Cuéntame Sobre Tus Objetivos</span></label>
-          <textarea rows="4" id="goal-textarea" placeholder="What are you looking to achieve? What challenge are you facing?"></textarea>
-        </div>
-        <div class="form-submit-row">
-          <a href="mailto:cobrettieops@protonmail.com?subject=Enquiry%20%7C%20Tier%201%20Tactical" class="btn-submit" style="display:block;text-align:center;text-decoration:none;"><span data-lang="en">Send Enquiry →</span><span data-lang="es" style="display:none;">Enviar Consulta →</span></a>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- FOOTER -->
+<div class="divider"></div>
+
+<div id="system" class="section system-bg">
+  <div class="section-inner">
+    <h2 class="section-title">
+      <span data-lang="en">The <em>four pillars</em> of the system.</span>
+      <span data-lang="es">Los <em>cuatro pilares</em> del sistema.</span>
+    </h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-name"><span data-lang="en">Movement</span><span data-lang="es">Movimiento</span></div>
+        <div class="pillar-desc"><span data-lang="en">Training built for longevity — strength, mobility, and joint integrity above all.</span><span data-lang="es">Entrenamiento diseñado para la longevidad — fuerza, movilidad e integridad articular.</span></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-name"><span data-lang="en">Recovery</span><span data-lang="es">Recuperación</span></div>
+        <div class="pillar-desc"><span data-lang="en">Sleep, stress, and adaptation protocols designed for your biology after 40.</span><span data-lang="es">Protocolos de sueño, estrés y adaptación diseñados para tu biología después de los 40.</span></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-name"><span data-lang="en">Nutrition</span><span data-lang="es">Nutrición</span></div>
+        <div class="pillar-desc"><span data-lang="en">Fuelling performance and body composition without obsession or extreme restriction.</span><span data-lang="es">Alimentar el rendimiento y la composición corporal sin obsesión ni restricciones extremas.</span></div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">04</div>
+        <div class="pillar-name"><span data-lang="en">Mindset</span><span data-lang="es">Mentalidad</span></div>
+        <div class="pillar-desc"><span data-lang="en">The mental frameworks that keep high performers consistent for life.</span><span data-lang="es">Los marcos mentales que mantienen a los grandes rendidores constantes de por vida.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div id="apply" class="apply-bg">
+  <div class="apply-inner">
+    <h2 class="apply-title">
+      <span data-lang="en">Ready to train <em>smarter?</em></span>
+      <span data-lang="es">¿Listo para entrenar <em>mejor?</em></span>
+    </h2>
+    <p class="apply-sub">
+      <span data-lang="en">Applications are reviewed personally. Spots are intentionally limited to ensure each client gets the attention they deserve.</span>
+      <span data-lang="es">Las solicitudes se revisan personalmente. Los cupos son intencionalmente limitados para garantizar que cada cliente reciba la atención que merece.</span>
+    </p>
+    <form class="apply-form" onsubmit="return false;">
+      <div class="form-row">
+        <input type="text" placeholder="First name" />
+        <input type="text" placeholder="Last name" />
+      </div>
+      <input type="email" placeholder="Email address" />
+      <input type="tel" placeholder="Phone (optional)" />
+      <select>
+        <option value="" disabled selected>Select a programme...</option>
+        <option>Foundation</option>
+        <option>Performance</option>
+        <option>Elite 1-on-1</option>
+      </select>
+      <textarea placeholder="Tell us about your goals, current fitness level, and what's holding you back..."></textarea>
+      <button type="submit" class="btn-apply">
+        <span data-lang="en">Submit Application</span>
+        <span data-lang="es">Enviar Solicitud</span>
+      </button>
+    </form>
+    <p class="apply-note">
+      <span data-lang="en">No spam. No pressure. Just a conversation.</span>
+      <span data-lang="es">Sin spam. Sin presión. Solo una conversación.</span>
+    </p>
+  </div>
+</div>
+
 <footer>
-  <div class="footer-logo">Tier 1 Tactical</div>
-  <p class="footer-copy"><span data-lang="en">© 2025 Tier 1 Tactical. All rights reserved.</span><span data-lang="es" style="display:none;">© 2025 Tier 1 Tactical. Todos los derechos reservados.</span></p>
-  <ul class="footer-links">
-    <li><a href="#"><span data-lang="en">Training</span><span data-lang="es" style="display:none;">Entrenamiento</span></a></li>
-    <li><a href="#"><span data-lang="en">Speaking</span><span data-lang="es" style="display:none;">Conferencias</span></a></li>
-    <li><a href="#contact"><span data-lang="en">Contact</span><span data-lang="es" style="display:none;">Contacto</span></a></li>
-  </ul>
+  <div class="footer-logo">Tier 1 <span>Training</span></div>
+  <div class="footer-text">© 2026 Tier 1 Training. All rights reserved.</div>
 </footer>
 
-
 <script>
-function toggleMobileMenu() {
-  var menu = document.getElementById('mobile-menu');
-  var btn = document.getElementById('nav-hamburger');
-  var isOpen = menu.classList.toggle('open');
-  btn.classList.toggle('open', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
-}
-
-function closeMobileMenu() {
-  var menu = document.getElementById('mobile-menu');
-  var btn = document.getElementById('nav-hamburger');
-  menu.classList.remove('open');
-  btn.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
 function setLang(lang) {
-  document.body.classList.toggle('lang-es', lang === 'es');
-
-  // Sync lang buttons (desktop only now — switcher is always in nav)
-  var btnEn = document.getElementById('btn-en');
-  var btnEs = document.getElementById('btn-es');
-  if (btnEn) btnEn.classList.toggle('active', lang === 'en');
-  if (btnEs) btnEs.classList.toggle('active', lang === 'es');
-
-  // Handle inline display for es spans in nav/hero (they use style="display:none")
-  document.querySelectorAll('[data-lang]').forEach(function(el) {
-    if (el.dataset.lang === lang) {
-      el.style.display = '';
-    } else {
-      el.style.display = 'none';
-    }
-  });
-
-  // Translate select option text
-  document.querySelectorAll('option[data-en]').forEach(function(opt) {
-    opt.textContent = lang === 'es' ? opt.dataset.es : opt.dataset.en;
-  });
-
-  // Translate placeholders
-  var orgInput = document.getElementById('org-input');
-  if (orgInput) orgInput.placeholder = lang === 'es' ? 'Nombre de empresa u organización' : 'Company or organisation name';
-  var goalTA = document.getElementById('goal-textarea');
-  if (goalTA) goalTA.placeholder = lang === 'es' ? '¿Qué quieres lograr? ¿A qué desafío te enfrentas?' : 'What are you looking to achieve? What challenge are you facing?';
-
-  // Update html lang attr
-  document.documentElement.lang = lang;
-
-  localStorage.setItem('tier1-lang', lang);
+  document.body.className = 'lang-' + lang;
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
 }
-
-// On load, restore preference
-(function() {
-  var saved = localStorage.getItem('tier1-lang');
-  if (saved === 'es') setLang('es');
-})();
 </script>
 </body>
 </html>

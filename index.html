@@ -3,157 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tier 1 Performance Consulting — Revised</title>
+<title>Tier 1 Performance Consulting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#181a1d;
-    --paper:#f2ede4;
-    --rust:#a8532e;
-    --slate:#4c5a63;
-    --line:#d8cfc0;
-    --paper-dim:#e8e0d2;
+    --ink:#0e0f10;
+    --panel:#17181a;
+    --paper:#efece5;
+    --ember:#c1502f;
+    --ember-bright:#e0693f;
+    --steel:#8a97a0;
+    --line:#2b2d30;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Public Sans', sans-serif;
-    line-height:1.55;
+    margin:0; background:var(--ink); color:var(--paper);
+    font-family:'Public Sans', sans-serif; line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    line-height:1.08;
-    margin:0;
-    letter-spacing:-0.01em;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:600; line-height:1.02; margin:0; letter-spacing:0.005em;
   }
   a{color:inherit;}
-  .wrap{max-width:960px; margin:0 auto; padding:0 28px;}
+  .wrap{max-width:980px; margin:0 auto; padding:0 28px;}
 
-  /* NAV */
-  nav{
-    position:sticky; top:0; z-index:10;
-    background:rgba(242,237,228,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav-inner{
-    max-width:960px; margin:0 auto; padding:18px 28px;
-    display:flex; justify-content:space-between; align-items:center;
-  }
-  .brand{font-family:'Fraunces', serif; font-size:19px; font-weight:600;}
-  .nav-links{display:flex; gap:28px; font-size:14px;}
-  .nav-links a{text-decoration:none; color:var(--slate); border-bottom:1px solid transparent; padding-bottom:2px;}
-  .nav-links a:hover{border-color:var(--rust); color:var(--ink);}
+  nav{position:sticky; top:0; z-index:10; background:rgba(14,15,16,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:980px; margin:0 auto; padding:20px 28px; display:flex; justify-content:space-between; align-items:center;}
+  .brand{font-family:'Barlow Condensed', sans-serif; font-size:20px; font-weight:700; letter-spacing:0.02em;}
+  .nav-links{display:flex; gap:30px; font-size:14.5px;}
+  .nav-links a{text-decoration:none; color:var(--steel);}
+  .nav-links a:hover{color:var(--paper);}
 
-  /* HERO */
-  .hero{
-    padding:88px 0 64px;
-    border-bottom:1px solid var(--line);
-  }
-  .hero .kicker{
-    color:var(--rust); font-size:15px; font-weight:600; margin-bottom:18px;
-  }
-  .hero h1{
-    font-size:44px; max-width:680px;
-  }
-  .hero p.lede{
-    max-width:560px; font-size:18px; color:var(--slate); margin-top:22px;
-  }
-  .hero-cta{margin-top:32px; display:flex; gap:16px; align-items:center; flex-wrap:wrap;}
-  .btn{
-    display:inline-block; padding:13px 26px; background:var(--ink); color:var(--paper);
-    text-decoration:none; font-size:14.5px; font-weight:600; border-radius:2px;
-  }
-  .btn:hover{background:var(--rust);}
-  .btn-ghost{color:var(--ink); font-size:14.5px; text-decoration:underline; text-decoration-color:var(--line);}
+  .hero{padding:110px 0 80px; border-bottom:1px solid var(--line); position:relative;}
+  .hero .kicker{color:var(--ember-bright); font-size:15px; font-weight:600; margin-bottom:20px;}
+  .hero h1{font-size:clamp(38px,6vw,60px); max-width:820px; color:var(--paper);}
+  .hero p.lede{max-width:600px; font-size:19px; color:var(--steel); margin-top:26px;}
+  .hero-cta{margin-top:36px; display:flex; gap:18px; align-items:center; flex-wrap:wrap;}
+  .btn{display:inline-block; padding:15px 30px; background:var(--ember); color:var(--paper); text-decoration:none; font-size:15px; font-weight:600;}
+  .btn:hover{background:var(--ember-bright);}
+  .btn-ghost{color:var(--paper); font-size:15px; text-decoration:underline; text-decoration-color:var(--line);}
 
-  /* BIO STRIP */
-  .bio{
-    padding:52px 0; border-bottom:1px solid var(--line);
-    display:grid; grid-template-columns:200px 1fr; gap:36px; align-items:start;
-  }
-  .bio .avatar{
-    width:150px; height:150px; border-radius:50%;
-    background:linear-gradient(160deg,#8f9a9f,#4c5a63);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--paper); font-family:'Fraunces',serif; font-size:44px;
-  }
+  .bio{padding:60px 0; border-bottom:1px solid var(--line); display:grid; grid-template-columns:160px 1fr; gap:40px; align-items:start;}
+  .bio .avatar{width:140px; height:140px; border-radius:50%; background:linear-gradient(160deg,#3a4147,#17181a); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-family:'Barlow Condensed',sans-serif; font-size:40px; color:var(--ember-bright);}
   .bio-text .name{font-size:15px; font-weight:700; margin-bottom:4px;}
-  .bio-text .role{font-size:14px; color:var(--slate); margin-bottom:14px;}
-  .bio-text p{font-size:15.5px; max-width:600px; margin:0;}
+  .bio-text .role{font-size:14px; color:var(--steel); margin-bottom:16px;}
+  .bio-text p{font-size:16px; max-width:620px; margin:0; color:#d8d5cd;}
 
-  /* STATS - the earned proof */
-  .stats-section{padding:56px 0; border-bottom:1px solid var(--line);}
-  .stats-section h2{font-size:26px; margin-bottom:8px;}
-  .stats-section .sub{color:var(--slate); font-size:15.5px; max-width:520px; margin-bottom:36px;}
-  .stat-grid{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-    background:var(--line); border:1px solid var(--line);
-  }
-  .stat-cell{background:var(--paper); padding:26px 20px;}
-  .stat-cell .num{font-family:'Fraunces',serif; font-size:32px; color:var(--rust);}
-  .stat-cell .label{font-size:13.5px; color:var(--slate); margin-top:6px;}
+  .stats-section{padding:64px 0; border-bottom:1px solid var(--line);}
+  .stats-section h2{font-size:32px; margin-bottom:10px; color:var(--paper);}
+  .stats-section .sub{color:var(--steel); font-size:16px; max-width:540px; margin-bottom:40px;}
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .stat-cell{background:var(--panel); padding:30px 22px;}
+  .stat-cell .num{font-family:'Barlow Condensed',serif; font-size:44px; color:var(--ember-bright); font-weight:700;}
+  .stat-cell .label{font-size:13.5px; color:var(--steel); margin-top:8px;}
 
-  /* QUOTE */
-  .quote-block{
-    padding:64px 0; border-bottom:1px solid var(--line);
-    background:var(--paper-dim);
-  }
-  blockquote{
-    max-width:680px; margin:0 auto; font-family:'Fraunces', serif;
-    font-size:26px; font-weight:500; line-height:1.4; color:var(--ink);
-    padding:0 28px;
-  }
-  blockquote::before{content:"“"; color:var(--rust);}
-  blockquote::after{content:"”"; color:var(--rust);}
+  .quote-block{padding:80px 0; border-bottom:1px solid var(--line); background:var(--panel);}
+  blockquote{max-width:720px; margin:0 auto; font-family:'Barlow Condensed', sans-serif; font-size:30px; font-weight:600; line-height:1.32; color:var(--paper); padding:0 28px;}
+  blockquote span{color:var(--ember-bright);}
 
-  /* SERVICES */
-  .services{padding:64px 0;}
-  .services h2{font-size:26px; margin-bottom:10px;}
-  .services .sub{color:var(--slate); font-size:15.5px; max-width:520px; margin-bottom:38px;}
+  .services{padding:70px 0;}
+  .services h2{font-size:32px; margin-bottom:12px; color:var(--paper);}
+  .services .sub{color:var(--steel); font-size:16px; max-width:540px; margin-bottom:40px;}
   .service-list{border-top:1px solid var(--line);}
-  .service-row{
-    display:grid; grid-template-columns:260px 1fr; gap:24px;
-    padding:26px 0; border-bottom:1px solid var(--line);
-  }
-  .service-row h3{font-size:19px; border-left:3px solid var(--rust); padding-left:14px;}
-  .service-row p{margin:0; font-size:15px; color:var(--slate); max-width:520px;}
+  .service-row{display:grid; grid-template-columns:280px 1fr; gap:26px; padding:30px 0; border-bottom:1px solid var(--line);}
+  .service-row h3{font-size:21px; border-left:3px solid var(--ember); padding-left:16px; color:var(--paper); font-weight:600;}
+  .service-row p{margin:0; font-size:15.5px; color:var(--steel); max-width:540px;}
 
-  /* SERVICE VETERAN / TIMELINE */
-  .timeline{padding:64px 0; border-top:1px solid var(--line);}
-  .timeline h2{font-size:26px; margin-bottom:34px;}
-  .tl-item{
-    display:grid; grid-template-columns:130px 1fr; gap:24px;
-    padding:22px 0; border-top:1px solid var(--line);
-  }
+  .timeline{padding:70px 0; border-top:1px solid var(--line);}
+  .timeline h2{font-size:32px; margin-bottom:36px; color:var(--paper);}
+  .tl-item{display:grid; grid-template-columns:140px 1fr; gap:26px; padding:24px 0; border-top:1px solid var(--line);}
   .tl-item:last-child{border-bottom:1px solid var(--line);}
-  .tl-item .when{font-size:14px; color:var(--rust); font-weight:600; padding-top:2px;}
-  .tl-item h3{font-size:17px; margin-bottom:6px;}
-  .tl-item p{margin:0; font-size:15px; color:var(--slate);}
+  .tl-item .when{font-size:14.5px; color:var(--ember-bright); font-weight:600; padding-top:2px;}
+  .tl-item h3{font-size:19px; margin-bottom:8px; color:var(--paper); font-weight:600;}
+  .tl-item p{margin:0; font-size:15.5px; color:var(--steel);}
 
-  /* CTA FOOTER */
-  .cta-final{padding:72px 0; text-align:left;}
-  .cta-final h2{font-size:30px; max-width:520px;}
-  .cta-final p{color:var(--slate); font-size:15.5px; margin-top:16px; max-width:480px;}
-  .cta-final .btn{margin-top:26px;}
+  .cta-final{padding:80px 0; text-align:left;}
+  .cta-final h2{font-size:36px; max-width:560px; color:var(--paper);}
+  .cta-final p{color:var(--steel); font-size:16px; margin-top:18px; max-width:500px;}
+  .cta-final .btn{margin-top:28px;}
 
-  footer{
-    border-top:1px solid var(--line); padding:26px 0; font-size:13px; color:var(--slate);
-  }
+  footer{border-top:1px solid var(--line); padding:28px 0; font-size:13px; color:var(--steel);}
 
   @media (max-width:700px){
-    .hero h1{font-size:32px;}
+    .hero h1{font-size:34px;}
     .bio{grid-template-columns:1fr;}
     .stat-grid{grid-template-columns:repeat(2,1fr);}
-    .service-row, .tl-item{grid-template-columns:1fr; gap:8px;}
-    .nav-links{gap:16px; font-size:13px;}
+    .service-row, .tl-item{grid-template-columns:1fr; gap:10px;}
+    .nav-links{gap:18px; font-size:13px;}
   }
 </style>
 </head>
@@ -161,22 +101,22 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="brand">Tier 1 Performance Consulting</div>
+    <div class="brand">TIER 1 PERFORMANCE CONSULTING</div>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#background">Background</a>
+      <a href="story.html">My Story</a>
     </div>
   </div>
 </nav>
 
 <section class="hero wrap" id="about">
   <div class="kicker">Executive Coaching &amp; Keynote Speaking</div>
-  <h1>Resilience isn't a mindset. It's a skill — and I've had to rebuild it three times.</h1>
-  <p class="lede">I help leaders and teams perform under real pressure, drawing on two decades of government service, four Ironman finishes, a major cardiac event, and a cancer diagnosis I trained straight through.</p>
+  <h1>Resilience isn't a mindset. It's a skill — and I've had to rebuild it more than once.</h1>
+  <p class="lede">I help leaders and teams perform under real pressure, drawing on two decades of government and contract service, four Ironman finishes, a major cardiac event, and a cancer diagnosis I trained straight through.</p>
   <div class="hero-cta">
     <a class="btn" href="mailto:cobrettieops@protonmail.com">Book a conversation</a>
-    <a class="btn-ghost" href="#background">Read the full background</a>
+    <a class="btn-ghost" href="story.html">Read the whole story →</a>
   </div>
 </section>
 
@@ -185,23 +125,23 @@
   <div class="bio-text">
     <div class="name">Simon Cobrettie</div>
     <div class="role">Founder, Tier 1 Performance Consulting</div>
-    <p>Endurance athlete, cancer survivor, and career rebuilder. After two decades in demanding government service, a major cardiac event, and a cancer diagnosis, I've had to rebuild my body, my career, and my sense of direction more than once. I bring that hard-won discipline into coaching and speaking for leaders and teams facing their own version of starting over.</p>
+    <p>Endurance athlete, cancer survivor, and career rebuilder. After years in demanding government and contract service, a major cardiac event, and a cancer diagnosis, I've had to rebuild my body, my career, and my sense of direction more than once. I bring that hard-won discipline into coaching and speaking for leaders and teams facing their own version of starting over.</p>
   </div>
 </section>
 
 <section class="stats-section wrap">
   <h2>Tested the hard way</h2>
-  <p class="sub">Every credential here is something you can check. No claims, no titles I can't stand behind — just years of proof.</p>
+  <p class="sub">Every credential here is something you can check. No borrowed titles — just years of proof.</p>
   <div class="stat-grid">
     <div class="stat-cell"><div class="num">50+</div><div class="label">Olympic &amp; sprint triathlons</div></div>
     <div class="stat-cell"><div class="num">4×</div><div class="label">Full Ironman finisher — 140.6 miles each</div></div>
     <div class="stat-cell"><div class="num">2</div><div class="label">Major health events trained straight through</div></div>
-    <div class="stat-cell"><div class="num">12</div><div class="label">Years of government service</div></div>
+    <div class="stat-cell"><div class="num">12</div><div class="label">Years of government &amp; contract service</div></div>
   </div>
 </section>
 
 <section class="quote-block">
-  <blockquote>I've overcome a major cardiac event and cancer — and I still train at an elite level every day. What I bring to a room isn't a story. It's a working framework for rebuilding, tested on myself first.</blockquote>
+  <blockquote>I've overcome a major cardiac event and cancer — and I still train at an elite level every day. What I bring to a room isn't <span>a story</span>. It's a working framework for rebuilding, tested on myself first.</blockquote>
 </section>
 
 <section class="services wrap" id="services">
@@ -232,8 +172,8 @@
   <div class="tl-item">
     <div class="when">12 years</div>
     <div>
-      <h3>Government Service</h3>
-      <p>Years of service in demanding, high-pressure operational environments, developing skills in crisis response, sound judgment under stress, and performing with zero margin for error.</p>
+      <h3>Government &amp; Contract Service</h3>
+      <p>Years of service in demanding, high-pressure operational environments overseas, developing skills in crisis response, sound judgment under stress, and performing with zero margin for error.</p>
     </div>
   </div>
   <div class="tl-item">

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Story — Simon Cobrettie | Tier 1 Performance Consulting</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Source+Sans+3:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #353839;
+    --bg-cream: #e8e3da;
+    --ink: #f2efe8;
+    --ink-dim: #b9bcbc;
+    --ink-dark: #1a1916;
+    --ink-dark-dim: #6f6d66;
+    --line: #4a4d4e;
+    --line-light: #ccc7ba;
+    --accent: #d9b64a;
+    --accent-dark: #a9822a;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Source Sans 3', sans-serif;
+    font-size:17px;
+    line-height:1.65;
+  }
+  h1,h2,h3,.display{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+    margin:0;
+    color:var(--ink);
+  }
+  .cream h1, .cream h2, .cream h3{color:var(--ink-dark);}
+  .cream{background:var(--bg-cream); color:var(--ink-dark);}
+  .cream p{color:var(--ink-dark-dim);}
+  .cream .eyebrow, .cream .cred-cat{color:var(--accent-dark);}
+  .cream .stat-row, .cream .cred-block{border-color:var(--line-light) !important;}
+  .cream .stat-row h3, .cream .cred-block h3{color:var(--ink-dark);}
+  .cream .stat-row p, .cream .cred-block p, .cream p.section-sub{color:var(--ink-dark-dim);}
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
+  nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:26px 28px; max-width:816px; margin:0 auto;
+    border-bottom:1px solid var(--line);
+  }
+  nav .mark{font-family:'Oswald'; font-size:15px; letter-spacing:0.08em; color:var(--ink);}
+  nav .links{display:flex; font-size:14px;}
+  nav .links a{color:var(--ink-dim); text-decoration:none; transition:color .15s; margin-left:28px;}
+  nav .links a:hover{color:var(--accent);}
+
+  section{padding:64px 0;}
+  section.dark + section.dark{border-top:1px solid var(--line);}
+  section.cream + section.cream{border-top:1px solid var(--line-light);}
+
+  .eyebrow{color:var(--accent); font-size:14px; margin-bottom:14px; font-family:'Source Sans 3'; font-weight:500;}
+  .hero h1{font-size:38px; line-height:1.25; max-width:600px;}
+  .hero p.sub{margin-top:22px; max-width:520px; color:var(--ink-dim); font-size:17px;}
+
+  h2.section-title{font-size:28px; margin-bottom:8px; position:relative; padding-left:20px;}
+  h2.section-title::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:4px; background:var(--accent);}
+  p.section-sub{color:var(--ink-dim); max-width:540px; margin:0 0 36px;}
+
+  .about-grid{display:grid; grid-template-columns:250px 1fr; gap:48px; align-items:start;}
+  .photo-frame{position:relative; padding:10px 10px 10px 0; }
+  .photo-frame::before{content:""; position:absolute; top:14px; left:14px; right:-10px; bottom:-10px; border:1px solid var(--line-light);}
+  .photo-frame img{position:relative; display:block; width:100%; border:1px solid var(--line-light);}
+  .name-line{font-size:22px; margin-bottom:6px; text-transform:uppercase;}
+  .name-line + .eyebrow{margin-bottom:18px; text-transform:uppercase; letter-spacing:0.06em; font-size:13px;}
+
+  blockquote{
+    margin:32px 0; padding:22px 26px;
+    background:var(--accent);
+    border-left:4px solid var(--accent-dark);
+    font-style:italic; color:var(--ink-dark);
+    font-size:18px; max-width:560px;
+  }
+
+  .stat-list{margin-top:36px; display:flex; flex-direction:column;}
+  .stat-row{
+    display:grid; grid-template-columns:220px 1fr; gap:24px;
+    padding:18px 0; border-top:1px solid var(--line);
+    border-left:3px solid var(--accent); padding-left:16px;
+  }
+  .stat-row.stat-row-stacked{display:block;}
+  .stat-row:last-child{border-bottom:1px solid var(--line);}
+  .stat-top{font-family:'Oswald'; text-transform:uppercase; font-size:16px; margin-bottom:10px; color:var(--ink-dark);}
+  .stat-pair{display:grid; grid-template-columns:220px 1fr; gap:24px;}
+  .stat-pair h3{font-size:16px;}
+  .stat-pair p{margin:0; font-size:15px;}
+  .stat-row h3{font-size:16px; color:var(--ink);}
+  .stat-row p{margin:0; color:var(--ink-dim); font-size:15px;}
+  .cream .stat-row h3{color:var(--ink-dark);}
+
+  .service{padding:26px 0; border-top:1px solid var(--line); display:grid; grid-template-columns:44px 1fr; gap:20px;}
+  .service:last-child{border-bottom:1px solid var(--line);}
+  .service .num{font-family:'Oswald'; color:var(--accent); font-size:20px;}
+  .service h3{font-size:19px; margin-bottom:8px;}
+  .service p{margin:0; color:var(--ink-dim); font-size:15.5px;}
+
+  .cred-block{padding:22px 0; border-top:1px solid var(--line);}
+  .cred-block:last-child{border-bottom:1px solid var(--line);}
+  .cred-cat{color:var(--accent-dark); font-size:13px; margin-bottom:6px; letter-spacing:0.03em;}
+  .cred-block h3{font-size:18px; margin-bottom:8px;}
+  .cred-block p{margin:0; color:var(--ink-dark-dim); font-size:15.5px;}
+
+  .contact h2{font-size:30px; max-width:520px; margin-bottom:18px;}
+  .contact p.sub{color:var(--ink-dim); max-width:520px; margin-bottom:30px;}
+  .contact a{
+    color:var(--ink); font-family:'Oswald'; font-size:20px; text-decoration:none;
+    border-bottom:1px solid var(--accent); padding-bottom:4px;
+  }
+  .contact a:hover{color:var(--accent);}
+
+  .story-body p{max-width:620px;}
+  .back-link{display:inline-block; margin-top:10px; font-size:14px; color:var(--ink-dark-dim); text-decoration:underline;}
+
+  footer{padding:32px 28px; text-align:center; color:var(--ink-dim); font-size:13px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="mark">TIER 1 PERFORMANCE CONSULTING</div>
+  <div class="links"><a href="index.html#about">About</a><a href="index.html#services">Services</a><a href="index.html#credentials">Credentials</a><a href="story.html">My Story</a></div>
+</nav>
+
+<section class="hero dark">
+  <div class="wrap">
+    <div class="eyebrow">My Story</div>
+    <h1>From there to here</h1>
+    <p class="sub">Each stage of my life has cost me something. Here's the short version of how I got from there to here.</p>
+  </div>
+</section>
+
+<section class="cream story-body">
+  <div class="wrap">
+    <p>I was a father at 17 and a national bodybuilding champion at 20. At 21, my four-year-old daughter was killed by a drunk driver.</p>
+
+    <blockquote>I left England two weeks later. I didn't know how else to survive it.</blockquote>
+
+    <p>I spent the next twelve years in government and contract service, much of it overseas in demanding, high-pressure environments. I came home with two gunshot wounds, two helicopter crashes behind me, and PTSD I've spent years outrunning.</p>
+
+    <p>What followed was a series of complete life changes: beach lifeguard, Ironman triathlete, a career in corporate sales, and a move to Spain. Onto owning a classical ballet school, alongside turning my home into a hospice for terminally ill rescue cats.</p>
+
+    <p>In recent years I've come through two heart attacks, divorce, job losses, and cancer. I'm clear now, and I'm still training.</p>
+
+    <a class="back-link" href="index.html">&larr; Back to Tier 1 Performance Consulting</a>
+  </div>
+</section>
+
+<section class="contact dark">
+  <div class="wrap">
+    <h2>Ready to Perform at a Different Level?</h2>
+    <p class="sub">Whether you need a keynote speaker who delivers more than a story, a coach who's operated under real pressure, or a partner to transform your team's performance.</p>
+    <a href="mailto:cobrettieops@protonmail.com">cobrettieops@protonmail.com</a>
+  </div>
+</section>
+
+<footer>Tier 1 Performance Consulting &middot; © 2025 Tier 1 Performance Consulting. All rights reserved.</footer>
+
+</body>
+</html>
